@@ -2,11 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:YTubeD"
+             xmlns:viewModel="clr-namespace:YTubeD.MVVM.ViewModel"
              StartupUri="MVVM/View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="Styles/ControlStyle.xaml"/>
+                <ResourceDictionary Source="Styles/ComboBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

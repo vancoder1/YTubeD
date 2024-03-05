@@ -4,27 +4,65 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YTubeD"
+        xmlns:viewModel="clr-namespace:YTubeD.MVVM.ViewModel"
         mc:Ignorable="d"
-        Height="700" Width="500"
-        WindowStyle="None"
+        Height="700" Width="520"
         ResizeMode="NoResize"
-        Background="Transparent"
-        AllowsTransparency="True">
-    <Border Background="#2D1B2C"
-        CornerRadius="10">
+
+        Style="{StaticResource ForegroundStyle}">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#393E46">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <Grid Grid.Row="0"
+                  Background="#222831"/>
+            
+            <!--Grid.Row 0-->
             <TextBlock Grid.Row="0"
                        Text="YTubeD"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       Foreground="FloralWhite"
-                       FontSize="18"
-                       Margin="20 0 0 0"/>
+                       Margin="20 0 0 0"
+                       FontSize="18"/>
+
+            <!--Grid.Row 1-->
+            <Label Grid.Row="1"
+                   Style="{StaticResource ForegroundStyle}"
+                   Content="Video URL:"
+                   VerticalAlignment="Center"
+                   Margin="20 0 0 0"
+                   FontSize="16"/>
+            <TextBox Grid.Row="1"
+                     Style="{StaticResource TextBoxStyle}"
+                     Height="40" Width="350"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right"
+                     Margin="0 0 20 0"/>
+
+            <!--Grid Row 2-->
+            <Label Grid.Row="2"
+                   Style="{StaticResource ForegroundStyle}"
+                   Content="Video Quality:"
+                   VerticalAlignment="Center"
+                   Margin="20 0 0 0"
+                   FontSize="16"/>
+            <ComboBox Grid.Row="2"
+                      Style="{StaticResource ComboBoxStyle}"
+                      Height="40" Width="350"
+                      BorderBrush="Blue"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Right"
+                      Margin="0 0 20 0"/>
+
         </Grid>
     </Border>
 </Window>

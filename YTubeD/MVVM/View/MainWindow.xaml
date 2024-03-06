@@ -21,6 +21,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0"
@@ -58,10 +59,29 @@
             <ComboBox Grid.Row="2"
                       Style="{StaticResource ComboBoxStyle}"
                       Height="40" Width="350"
-                      BorderBrush="Blue"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Right"
                       Margin="0 0 20 0"/>
+
+            <!--Grid Row 3-->
+            <Label Grid.Row="3"
+                   Style="{StaticResource ForegroundStyle}"
+                   Content="Save to path:"
+                   VerticalAlignment="Center"
+                   Margin="20 0 0 0"
+                   FontSize="16"/>
+            <TextBox Grid.Row="3"
+                     Style="{StaticResource TextBoxStyle}"
+                     Height="40" Width="350"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right"
+                     Margin="0 0 20 0"/>
+
+            <!--Grid Row 4-->
+            <Button Grid.Row="4"
+                    Style="{StaticResource ButtonStyle}"
+                    Height="80" Width="300"
+                    Content="Download"/>
 
         </Grid>
     </Border>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Work\C#\YTubeD\YTubeD\App.xaml
-41456375880
+5-1759641966
 
 6-522693087
 1981451641563
-MVVM\View\MainWindow.xaml;Styles\ComboBoxStyle.xaml;Styles\ControlStyle.xaml;Styles\TextBoxStyle.xaml;
+MVVM\View\MainWindow.xaml;Styles\ButtonStyle.xaml;Styles\ComboBoxStyle.xaml;Styles\ControlStyle.xaml;Styles\TextBoxStyle.xaml;
 
 False
 

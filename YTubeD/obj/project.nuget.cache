@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "f7lYTmJ1Loosf+LLOf9iTSlZF7tNTCeXk4W+tOtUQLsGxAAnvMkW1a5Fu8jCiS/NHk/3OkjcA9thmEhhHe8gGw==",
+  "dgSpecHash": "9fYA84m3e3jrb6zXDd1uPgtrGR0sMeFN8QW3JrE0ciJ2sUdzfetKasXg5WqnNPwteyAFGt1epRuD9xA5WugulQ==",
   "success": true,
   "projectFilePath": "D:\\Work\\C#\\YTubeD\\YTubeD\\YTubeD.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ivanz\\.nuget\\packages\\anglesharp\\1.0.7\\anglesharp.1.0.7.nupkg.sha512",
+    "C:\\Users\\ivanz\\.nuget\\packages\\cliwrap\\3.6.4\\cliwrap.3.6.4.nupkg.sha512",
+    "C:\\Users\\ivanz\\.nuget\\packages\\system.text.encoding.codepages\\8.0.0\\system.text.encoding.codepages.8.0.0.nupkg.sha512",
+    "C:\\Users\\ivanz\\.nuget\\packages\\youtubeexplode\\6.3.13\\youtubeexplode.6.3.13.nupkg.sha512",
+    "C:\\Users\\ivanz\\.nuget\\packages\\youtubeexplode.converter\\6.3.13\\youtubeexplode.converter.6.3.13.nupkg.sha512"
+  ],
   "logs": []
 }

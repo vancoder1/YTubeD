@@ -49,16 +49,6 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "dependencies": {
-            "YoutubeExplode": {
-              "target": "Package",
-              "version": "[6.3.13, )"
-            },
-            "YoutubeExplode.Converter": {
-              "target": "Package",
-              "version": "[6.3.13, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

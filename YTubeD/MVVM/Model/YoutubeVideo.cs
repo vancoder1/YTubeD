@@ -9,13 +9,47 @@ namespace YTubeD.MVVM.Model
 {
     internal class YoutubeVideo : ObservableObject
     {
-        public string Url { get; set; }
-        public string VideoName { get; set; }
+        public string Url 
+        { 
+            get { return Url; }
+            set
+            {
+                Url = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Title { 
+            get { return Title; }
+            set
+            {
+                Title = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Author 
+        {
+            get { return Author; }
+            set
+            {
+                Author = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Duration { 
+            get { return Duration; }
+            set
+            {
+                Duration = value;
+                OnPropertyChanged();
+            }
+        }
         
         public YoutubeVideo()
         {
             Url = "";
-            VideoName = "";
+            Title = "";
+            Author = "";
+            Duration = "";
         }
     }
 }

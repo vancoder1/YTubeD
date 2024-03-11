@@ -9,13 +9,15 @@ namespace YTubeD.MVVM.Model
 {
     internal class Downloader : ObservableObject
     {
+        private string _outputDirectory = string.Empty;
+
         public YoutubeVideo Video { get; set; }
         public string OutputDirectory 
         {
-            get { return OutputDirectory; }
+            get { return _outputDirectory; }
             set
             {
-                OutputDirectory = value;
+                _outputDirectory = value;
                 OnPropertyChanged();
             }
         }
@@ -23,7 +25,6 @@ namespace YTubeD.MVVM.Model
         public Downloader()
         {
             Video = new YoutubeVideo();
-            OutputDirectory = "";
         }
     }
 }

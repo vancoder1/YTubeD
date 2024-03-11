@@ -9,8 +9,8 @@ namespace YTubeD.Core
 {
     internal class RelayCommand : ICommand
     {
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
+        private Action<object> _execute;
+        private Func<object, bool> _canExecute;
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -19,18 +19,19 @@ namespace YTubeD.Core
 
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            this.execute = execute;
-            this.canExecute = canExecute;
+            this._execute = execute;
+            this._canExecute = canExecute;
         }
 
         public bool CanExecute(object? parameter)
         {
-            return this.canExecute == null || this.canExecute(parameter);
+            return this._canExecute == null || 
+                this._canExecute(parameter);
         }
 
         public void Execute(object? parameter)
         {
-            this.execute(parameter);
+            this._execute(parameter);
         }
     }
 }

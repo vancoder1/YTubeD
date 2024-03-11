@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="YoutubeExplode" Version="6.3.13" />
     <PackageReference Include="YoutubeExplode.Converter" Version="6.3.13" />
   </ItemGroup>

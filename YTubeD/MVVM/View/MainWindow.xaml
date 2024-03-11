@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YTubeD"
         xmlns:viewModel="clr-namespace:YTubeD.MVVM.ViewModel"
         mc:Ignorable="d"
-        Height="500" Width="520"
+        Height="420" Width="520"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
 

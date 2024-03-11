@@ -13,7 +13,7 @@
         Style="{StaticResource ForegroundStyle}">
 
     <Window.DataContext>
-        <viewModel:DownloaderViewModel/>
+        <viewModel:MainViewModel/>
     </Window.DataContext>
 
     <Grid>

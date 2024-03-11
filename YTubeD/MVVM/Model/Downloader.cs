@@ -13,6 +13,7 @@ namespace YTubeD.MVVM.Model
         private string _outputDirectory = string.Empty;
 
         public YoutubeVideo Video { get; set; }
+        public YoutubeClient Client { get; set; }
         public string OutputDirectory 
         {
             get { return _outputDirectory; }
@@ -26,6 +27,7 @@ namespace YTubeD.MVVM.Model
         public Downloader()
         {
             Video = new YoutubeVideo();
+            Client = new YoutubeClient();
         }
     }
 }

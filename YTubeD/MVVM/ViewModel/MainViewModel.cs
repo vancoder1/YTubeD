@@ -21,6 +21,15 @@ namespace YTubeD.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+        public string SavingPath
+        {
+            get { return YTDownloader.OutputDirectory; }
+            set
+            {
+                YTDownloader.OutputDirectory = value;
+                OnPropertyChanged();
+            }
+        }
 
         public MainViewModel()
         {

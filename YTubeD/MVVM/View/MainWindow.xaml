@@ -9,7 +9,6 @@
         Height="420" Width="520"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-
         Style="{StaticResource ForegroundStyle}">
 
     <Window.DataContext>
@@ -33,6 +32,7 @@
                Content="Video URL:"
                VerticalAlignment="Center"
                Margin="20 0 0 0"
+               FontFamily="RubikMedium"
                FontSize="16"/>
             <TextBox Grid.Row="0"
                  Style="{StaticResource TextBoxStyle}"

@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="RubikMedium">
+        <Style.Setters>
+            <Setter Property="TextElement.FontFamily" Value="Fonts/#Rubik-Medium"/>
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>

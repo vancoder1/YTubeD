@@ -36,7 +36,7 @@
                FontSize="16"/>
             <TextBox Grid.Row="0"
                  Style="{StaticResource TextBoxStyle}"
-                 Text="{Binding Url, UpdateSourceTrigger=LostFocus}"
+                 Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"
                  Height="40" Width="350"
                  VerticalAlignment="Center"
                  HorizontalAlignment="Right"
@@ -51,6 +51,7 @@
                FontSize="16"/>
             <ComboBox Grid.Row="1"
                   Style="{StaticResource ComboBoxStyle}"
+                  IsEnabled="{Binding IsUrlValid}"
                   Height="40" Width="350"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Right"

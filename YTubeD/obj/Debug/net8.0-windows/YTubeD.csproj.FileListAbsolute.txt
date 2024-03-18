@@ -32,3 +32,4 @@ D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YoutubeExplode.Converter.dll
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.csproj.AssemblyReference.cache
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.csproj.Up2Date
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Fonts\CustomFonts.baml
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Newtonsoft.Json.dll

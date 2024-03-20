@@ -64,13 +64,25 @@
                VerticalAlignment="Center"
                Margin="20 0 0 0"
                FontSize="16"/>
-            <TextBox Grid.Row="2"
-                 Style="{StaticResource TextBoxStyle}"
-                 Text="{Binding SavingPath}"
-                 Height="40" Width="350"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Right"
-                 Margin="0 0 20 0"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0"
+                    Style="{StaticResource TextBoxStyle}"
+                    Text="{Binding SavingPath}"
+                    Height="40" Width="310"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"/>
+                <Button Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        BorderThickness="1 0 0 0"
+                        Height="40" Width="40"
+                        Margin="0 0 20 0"
+                        Content="..."/>
+            </Grid>
+            
 
             <!--Grid Row 3-->
             <Button Grid.Row="3"

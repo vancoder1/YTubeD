@@ -59,7 +59,7 @@ namespace YTubeD.MVVM.Model
             }
             return false; // URL is not valid or video does not exist
         }
-        public void DownloadVideo()
+        public async Task DownloadVideo()
         {
 
         }

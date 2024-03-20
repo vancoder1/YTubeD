@@ -33,3 +33,4 @@ D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.csproj.AssemblyReferenc
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.csproj.Up2Date
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Fonts\CustomFonts.baml
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Ookii.Dialogs.Wpf.dll

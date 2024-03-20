@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Forms;
 using YTubeD.Core;
 using YTubeD.MVVM.Model;
+using System.Windows;
 
 namespace YTubeD.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject
     {
+        // Properties and fields
         Downloader YTDownloader { get; set; }
         private bool _isUrlValid;
         public bool IsUrlValid
@@ -45,12 +49,17 @@ namespace YTubeD.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        public ICommand ValidateUrlCommand { get; }
 
+        // Commands
+        public ICommand ValidateUrlCommand { get; }
+        public ICommand ChooseDirectoryCommand { get; }
+
+        // Methods
         public MainViewModel()
         {
             YTDownloader = new Downloader();
             ValidateUrlCommand = new RelayCommand(ValidateUrl);
+            ChooseDirectoryCommand = new RelayCommand(ChooseDirectory);
         }
         private async void ValidateUrl(object parameter)
         {
@@ -59,6 +68,18 @@ namespace YTubeD.MVVM.ViewModel
         private async Task<bool> IsYoutubeUrlValid()
         {
             return await YTDownloader.IsUrlValid();
+        }
+        private void ChooseDirectory(object parameter)
+        {
+            using (var dialog = new FolderBrowserDialog())
+            {
+                DialogResult result = dialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    SavingPath = dialog.SelectedPath;
+                }
+            }
         }
     }
 }

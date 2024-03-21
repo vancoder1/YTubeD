@@ -8,6 +8,7 @@ using YoutubeExplode;
 using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using YoutubeExplode.Videos.Streams;
 
 namespace YTubeD.MVVM.Model
 {
@@ -32,6 +33,7 @@ namespace YTubeD.MVVM.Model
             Video = new YoutubeVideo();
             Client = new YoutubeClient();
         }
+
         public async Task<bool> IsUrlValid()
         {
             try
@@ -59,9 +61,23 @@ namespace YTubeD.MVVM.Model
             }
             return false; // URL is not valid or video does not exist
         }
-        public async Task DownloadVideo()
-        {
 
+        public async Task<IEnumerable<IStreamInfo>> FetchQualities()
+        {
+            var streamManifest = await Client.Videos.Streams.GetManifestAsync(Video.Url);
+            var videoStreams = streamManifest.GetVideoOnlyStreams();
+            var audioStreams = streamManifest.GetAudioOnlyStreams();
+
+            var combinedStreams = new List<IStreamInfo>();
+            combinedStreams.AddRange(videoStreams);
+            combinedStreams.AddRange(audioStreams);
+
+            return combinedStreams;
         }
+
+        //public async Task DownloadVideo()
+        //{
+
+        //}
     }
 }

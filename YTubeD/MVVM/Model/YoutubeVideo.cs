@@ -15,12 +15,10 @@ namespace YTubeD.MVVM.Model
         private string _title = string.Empty;
         private string _author = string.Empty;
         private string _duration = string.Empty;
-        private IEnumerable<IAudioStreamInfo> _audioQualities;
-        private IEnumerable<IVideoStreamInfo> _videoQualities;
 
         public string Url 
         { 
-            get { return _url; }
+            get => _url;
             set
             {
                 _url = value;
@@ -29,7 +27,7 @@ namespace YTubeD.MVVM.Model
         }
         public string Title 
         { 
-            get { return _title; }
+            get => _title;
             set
             {
                 _title = value;
@@ -38,7 +36,7 @@ namespace YTubeD.MVVM.Model
         }
         public string Author 
         {
-            get { return _author; }
+            get => _author;
             set
             {
                 _author = value;
@@ -47,44 +45,17 @@ namespace YTubeD.MVVM.Model
         }
         public string Duration 
         { 
-            get { return _duration; }
+            get => _duration;
             set
             {
                 _duration = value;
                 OnPropertyChanged();
             }
         }
-        public IEnumerable<IAudioStreamInfo> AudioQualities
-        {
-            get { return _audioQualities; }
-            set
-            {
-                _audioQualities = value;
-                OnPropertyChanged();
-            }
-        }
-        public IEnumerable<IVideoStreamInfo> VideoQualities
-        {
-            get { return _videoQualities; }
-            set
-            {
-                _videoQualities = value;
-                OnPropertyChanged();
-            }
-        }
 
         public YoutubeVideo()
         {
-            AudioQualities = new List<IAudioStreamInfo>();
-            VideoQualities = new List<IVideoStreamInfo>();
-        }
 
-        public async Task Method()
-        {
-            var youtube = new YoutubeClient();
-            var streamManifest = await youtube.Videos.Streams.GetManifestAsync("u_yIGGhubZs");
-            var audioStreamInfo = streamManifest.GetAudioStreams().GetWithHighestBitrate();
-            var videoStreamInfo = streamManifest.GetVideoStreams().First(s => s.VideoQuality.Label == "1080p60");
         }
     }
 }

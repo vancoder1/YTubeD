@@ -10,17 +10,22 @@ using System.Windows.Forms;
 using YTubeD.Core;
 using YTubeD.MVVM.Model;
 using System.Windows;
+using YoutubeExplode.Videos.Streams;
 
 namespace YTubeD.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject
     {
         // Properties and fields
-        Downloader YTDownloader { get; set; }
+        Downloader YTDownloader { get; set; }       
         private bool _isUrlValid;
+        private ObservableCollection<IStreamInfo> _qualities;
+        private IStreamInfo _selectedQuality;
+        private string _statusMessage;
+
         public bool IsUrlValid
         {
-            get { return _isUrlValid; }
+            get => _isUrlValid;
             set
             {
                 if (_isUrlValid != value)
@@ -32,7 +37,7 @@ namespace YTubeD.MVVM.ViewModel
         }
         public string Url
         {
-            get { return YTDownloader.Video.Url; }
+            get => YTDownloader.Video.Url;
             set
             {
                 YTDownloader.Video.Url = value;
@@ -42,10 +47,37 @@ namespace YTubeD.MVVM.ViewModel
         }
         public string SavingPath
         {
-            get { return YTDownloader.OutputDirectory; }
+            get => YTDownloader.OutputDirectory;
             set
             {
                 YTDownloader.OutputDirectory = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<IStreamInfo> Qualities 
+        {
+            get => _qualities;
+            set
+            {
+                _qualities = value;
+                OnPropertyChanged();
+            }
+        }
+        public IStreamInfo SelectedQuality
+        {
+            get => _selectedQuality;
+            set
+            {
+                _selectedQuality = value;
+                OnPropertyChanged();
+            }
+        }
+        public string StatusMessage
+        {
+            get => _statusMessage;
+            set
+            {
+                _statusMessage = value;
                 OnPropertyChanged();
             }
         }
@@ -58,17 +90,31 @@ namespace YTubeD.MVVM.ViewModel
         public MainViewModel()
         {
             YTDownloader = new Downloader();
+            Qualities = new ObservableCollection<IStreamInfo>();
             ValidateUrlCommand = new RelayCommand(ValidateUrl);
             ChooseDirectoryCommand = new RelayCommand(ChooseDirectory);
         }
+
         private async void ValidateUrl(object parameter)
-        {
+        {          
             IsUrlValid = await IsYoutubeUrlValid();
+            if (IsUrlValid)
+            {
+                StatusMessage = "Fetching Qualities...";
+                await FetchQualities();
+                StatusMessage = "";
+            }
+            else
+            {
+                StatusMessage = "Invalid URL";
+            }
         }
+
         private async Task<bool> IsYoutubeUrlValid()
         {
             return await YTDownloader.IsUrlValid();
         }
+
         private void ChooseDirectory(object parameter)
         {
             using (var dialog = new FolderBrowserDialog())
@@ -80,6 +126,18 @@ namespace YTubeD.MVVM.ViewModel
                     SavingPath = dialog.SelectedPath;
                 }
             }
+        }
+
+        private async Task FetchQualities()
+        {
+            var qualities = await YTDownloader.FetchQualities();
+
+            Qualities.Clear();
+            foreach (var quality in qualities)
+            {
+                Qualities.Add(quality);
+            }
+            SelectedQuality = Qualities.First();
         }
     }
 }

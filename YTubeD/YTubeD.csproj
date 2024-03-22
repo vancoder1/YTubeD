@@ -9,12 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Core\" />
-    <Folder Include="Images\" />
-    <Folder Include="MVVM\Model\" />
-    <Folder Include="MVVM\ViewModel\" />
-    <Folder Include="MVVM\View\" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="YoutubeExplode" Version="6.3.13" />
+    <PackageReference Include="YoutubeExplode.Converter" Version="6.3.13" />
   </ItemGroup>
 
 </Project>

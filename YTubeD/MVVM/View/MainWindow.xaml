@@ -93,7 +93,8 @@
             <Button Grid.Row="3"
                 Style="{StaticResource ButtonStyle}"
                 Height="80" Width="300"
-                Content="Download"/>
+                Content="Download"
+                Command="{Binding DownloadCommand}"/>
             <Label Grid.Row="3"
                    Style="{StaticResource ForegroundStyle}"
                    Content="{Binding StatusMessage, UpdateSourceTrigger=PropertyChanged}"

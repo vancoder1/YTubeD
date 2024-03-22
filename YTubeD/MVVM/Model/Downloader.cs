@@ -9,18 +9,33 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using YoutubeExplode.Videos.Streams;
+using System.IO;
+using System.Security.Policy;
+using YoutubeExplode.Videos;
+using System.Windows.Forms;
+using System.IO.Packaging;
 
 namespace YTubeD.MVVM.Model
 {
     internal class Downloader : ObservableObject
     {
         private string _outputDirectory = string.Empty;
+        private string _url = string.Empty;
 
-        public YoutubeVideo Video { get; set; }
+        public Video YoutubeVideo { get; set; }
         public YoutubeClient Client { get; set; }
+        public string Url
+        {
+            get => _url;
+            set
+            {
+                _url = value;
+                OnPropertyChanged();
+            }
+        }
         public string OutputDirectory 
         {
-            get { return _outputDirectory; }
+            get => _outputDirectory;
             set
             {
                 _outputDirectory = value;
@@ -30,7 +45,6 @@ namespace YTubeD.MVVM.Model
 
         public Downloader()
         {
-            Video = new YoutubeVideo();
             Client = new YoutubeClient();
         }
 
@@ -38,7 +52,7 @@ namespace YTubeD.MVVM.Model
         {
             try
             {
-                string oembedUrl = $"https://www.youtube.com/oembed?format=json&url={Uri.EscapeDataString(Video.Url)}";
+                string oembedUrl = $"https://www.youtube.com/oembed?format=json&url={Uri.EscapeDataString(Url)}";
 
                 using (var httpclient = new HttpClient())
                 {
@@ -62,9 +76,9 @@ namespace YTubeD.MVVM.Model
             return false; // URL is not valid or video does not exist
         }
 
-        public async Task<IEnumerable<IStreamInfo>> FetchQualities()
+        public async Task<IEnumerable<IStreamInfo>> FetchInfo()
         {
-            var streamManifest = await Client.Videos.Streams.GetManifestAsync(Video.Url);
+            var streamManifest = await Client.Videos.Streams.GetManifestAsync(Url);
             var videoStreams = streamManifest.GetVideoOnlyStreams();
             var audioStreams = streamManifest.GetAudioOnlyStreams();
 
@@ -72,12 +86,23 @@ namespace YTubeD.MVVM.Model
             combinedStreams.AddRange(videoStreams);
             combinedStreams.AddRange(audioStreams);
 
+            YoutubeVideo = await Client.Videos.GetAsync(Url);
+
             return combinedStreams;
         }
 
-        //public async Task DownloadVideo()
-        //{
-
-        //}
+        public async Task DownloadVideoOrAudio(IStreamInfo quality)
+        {
+            if (quality == null)
+            {
+                throw new ArgumentNullException();
+            }
+            string sanitizedTitle = string.Join("_", YoutubeVideo.Title.Split(Path.GetInvalidFileNameChars()));
+            string outputFilePath = Path.Combine(OutputDirectory, $"{sanitizedTitle}.{quality.Container}");
+            using (var stream = await Client.Videos.Streams.GetAsync(quality))
+            {
+                await Client.Videos.Streams.DownloadAsync(quality, outputFilePath);
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ using YTubeD.Core;
 using YTubeD.MVVM.Model;
 using System.Windows;
 using YoutubeExplode.Videos.Streams;
+using System.Formats.Asn1;
 
 namespace YTubeD.MVVM.ViewModel
 {
@@ -37,10 +38,10 @@ namespace YTubeD.MVVM.ViewModel
         }
         public string Url
         {
-            get => YTDownloader.Video.Url;
+            get => YTDownloader.Url;
             set
             {
-                YTDownloader.Video.Url = value;
+                YTDownloader.Url = value;
                 OnPropertyChanged();
                 ValidateUrlCommand.Execute(null);
             }
@@ -85,6 +86,7 @@ namespace YTubeD.MVVM.ViewModel
         // Commands
         public ICommand ValidateUrlCommand { get; }
         public ICommand ChooseDirectoryCommand { get; }
+        public ICommand DownloadCommand { get; }
 
         // Methods
         public MainViewModel()
@@ -93,6 +95,7 @@ namespace YTubeD.MVVM.ViewModel
             Qualities = new ObservableCollection<IStreamInfo>();
             ValidateUrlCommand = new RelayCommand(ValidateUrl);
             ChooseDirectoryCommand = new RelayCommand(ChooseDirectory);
+            DownloadCommand = new RelayCommand(Download);
         }
 
         private async void ValidateUrl(object parameter)
@@ -130,7 +133,7 @@ namespace YTubeD.MVVM.ViewModel
 
         private async Task FetchQualities()
         {
-            var qualities = await YTDownloader.FetchQualities();
+            var qualities = await YTDownloader.FetchInfo();
 
             Qualities.Clear();
             foreach (var quality in qualities)
@@ -138,6 +141,13 @@ namespace YTubeD.MVVM.ViewModel
                 Qualities.Add(quality);
             }
             SelectedQuality = Qualities.First();
+        }
+
+        private async void Download(object parameter)
+        {
+            StatusMessage = "Downloading...";
+            await YTDownloader.DownloadVideoOrAudio(SelectedQuality);
+            StatusMessage = "Download Completed!";
         }
     }
 }

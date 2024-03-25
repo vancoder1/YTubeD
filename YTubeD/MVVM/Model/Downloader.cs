@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YTubeD.Core;
-using YoutubeExplode;
+using System.IO;
+using System.Security.Policy;
+using System.Windows.Forms;
 using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
-using YoutubeExplode.Videos.Streams;
-using System.IO;
-using System.Security.Policy;
+using YoutubeExplode;
 using YoutubeExplode.Videos;
-using System.Windows.Forms;
-using System.IO.Packaging;
+using YoutubeExplode.Videos.Streams;
+using YoutubeExplode.Converter;
+using YTubeD.Core;
+using System.Drawing.Drawing2D;
 
 namespace YTubeD.MVVM.Model
 {
@@ -79,30 +80,49 @@ namespace YTubeD.MVVM.Model
         public async Task<IEnumerable<IStreamInfo>> FetchInfo()
         {
             var streamManifest = await Client.Videos.Streams.GetManifestAsync(Url);
-            var videoStreams = streamManifest.GetVideoOnlyStreams();
-            var audioStreams = streamManifest.GetAudioOnlyStreams();
+            var videoStreamInfos = streamManifest.GetVideoOnlyStreams()
+                .Where(s => s.Container == Container.Mp4)
+                .GroupBy(s => s.VideoQuality)
+                .Select(g => g.First())
+                .OrderByDescending(s => s.VideoQuality);
+            var audioStreamInfo = streamManifest.GetAudioOnlyStreams()
+                .Where(s => s.Container == Container.Mp4)
+                .GetWithHighestBitrate();
 
             var combinedStreams = new List<IStreamInfo>();
-            combinedStreams.AddRange(videoStreams);
-            combinedStreams.AddRange(audioStreams);
+            combinedStreams.AddRange(videoStreamInfos);
+            combinedStreams.Add(audioStreamInfo);
 
             YoutubeVideo = await Client.Videos.GetAsync(Url);
 
             return combinedStreams;
         }
 
-        public async Task DownloadVideoOrAudio(IStreamInfo quality)
+        public async Task Download(IStreamInfo quality)
         {
             if (quality == null)
             {
                 throw new ArgumentNullException();
             }
+            
             string sanitizedTitle = string.Join("_", YoutubeVideo.Title.Split(Path.GetInvalidFileNameChars()));
             string outputFilePath = Path.Combine(OutputDirectory, $"{sanitizedTitle}.{quality.Container}");
-            using (var stream = await Client.Videos.Streams.GetAsync(quality))
+            var stream = await Client.Videos.Streams.GetManifestAsync(Url);
+            if (quality is IVideoStreamInfo)
+            {
+                var audioStreamInfo = stream
+                    .GetAudioOnlyStreams()
+                    .Where(s => s.Container == quality.Container)
+                    .GetWithHighestBitrate();
+                var streamInfos = new IStreamInfo[] { audioStreamInfo, quality };
+                await Client.Videos.DownloadAsync(streamInfos, new ConversionRequestBuilder(outputFilePath)
+                .Build());
+            }
+            else
             {
                 await Client.Videos.Streams.DownloadAsync(quality, outputFilePath);
             }
+            
         }
     }
 }

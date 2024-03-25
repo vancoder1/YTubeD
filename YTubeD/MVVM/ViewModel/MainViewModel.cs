@@ -146,7 +146,7 @@ namespace YTubeD.MVVM.ViewModel
         private async void Download(object parameter)
         {
             StatusMessage = "Downloading...";
-            await YTDownloader.DownloadVideoOrAudio(SelectedQuality);
+            await YTDownloader.Download(SelectedQuality);
             StatusMessage = "Download Completed!";
         }
     }

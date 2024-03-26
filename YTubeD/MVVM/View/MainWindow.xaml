@@ -8,6 +8,8 @@
         mc:Ignorable="d"
         Height="420" Width="520"
         ResizeMode="NoResize"
+        Title="YTubeD"
+        Icon="pack://application:,,,/Images/Icons/favicon.ico"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource ForegroundStyle}">
 

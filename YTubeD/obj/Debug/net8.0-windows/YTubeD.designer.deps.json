@@ -25,8 +25,36 @@
           }
         }
       },
+      "MaterialDesignColors/3.0.0": {
+        "runtime": {
+          "lib/net7.0/MaterialDesignColors.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        }
+      },
+      "MaterialDesignThemes/5.0.0": {
+        "dependencies": {
+          "MaterialDesignColors": "3.0.0",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
+        },
+        "runtime": {
+          "lib/net7.0/MaterialDesignThemes.Wpf.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.1": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+        "runtime": {
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.39.4716"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
@@ -737,6 +765,20 @@
       "path": "cliwrap/3.6.4",
       "hashPath": "cliwrap.3.6.4.nupkg.sha512"
     },
+    "MaterialDesignColors/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yIAqOd9RYY7JUnspmBaL/PK+NEbRFFMCS43AT1YWM5MBkGAU5rUYh9q11zzEfqFcz2jDO6Zaf9W+m4Y1dGhatQ==",
+      "path": "materialdesigncolors/3.0.0",
+      "hashPath": "materialdesigncolors.3.0.0.nupkg.sha512"
+    },
+    "MaterialDesignThemes/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Az/2+YP+AdtyNceaU42cFo7Fl7KBrFkMa56uvesR363kZyOrASb0OnMvi0Ou4j1x0zwGa19AaK/vspDUBNDlBQ==",
+      "path": "materialdesignthemes/5.0.0",
+      "hashPath": "materialdesignthemes.5.0.0.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/1.1.1": {
       "type": "package",
       "serviceable": true,
@@ -750,6 +792,13 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.39",
+      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",

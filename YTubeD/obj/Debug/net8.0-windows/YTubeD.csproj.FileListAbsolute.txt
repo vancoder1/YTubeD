@@ -5,6 +5,9 @@ D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.pdb
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\AngleSharp.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\CliWrap.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\MaterialDesignColors.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Ookii.Dialogs.Wpf.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YoutubeExplode.dll

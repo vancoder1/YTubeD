@@ -16,7 +16,7 @@ YTubeD is a simple and intuitive YouTube downloader application built using WPF 
 
 ## Installation
 
-1. Download the latest release from the [Releases](https://github.com/your-username/YTubeD/releases) page.
+1. Download the latest release from the [Releases](https://github.com/vancoder1/YTubeD/releases) page.
 2. Extract the downloaded ZIP file to your desired location.
 3. Run `YTubeD.exe` to launch the application.
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YTubeD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a25b469339ab83bdb5d2092b26c13a3b4aa1680")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+577b62b57d941a2a6ec4125d8b3d5e45bce54f12")]
 [assembly: System.Reflection.AssemblyProductAttribute("YTubeD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YTubeD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

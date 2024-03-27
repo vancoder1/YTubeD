@@ -1,6 +1,6 @@
 # YTubeD - YouTube Downloader
 
-YTubeD is a simple and intuitive YouTube downloader application built using WPF (Windows Presentation Foundation). It allows users to easily download video and audio from YouTube.
+YTubeD is a simple and intuitive YouTube downloader application built using WPF (Windows Presentation Foundation). It allows users to easily download both video and audio from YouTube.
 
 ## Features
 
@@ -51,7 +51,7 @@ This project is licensed under the [Apache License 2.0](LICENSE).
 
 ## Acknowledgements
 
-- Thanks to the creators and maintainers of libraries and frameworks used in this project.
+Thanks to the creators and maintainers of libraries and frameworks used in this project.
 
 ## Contact
 

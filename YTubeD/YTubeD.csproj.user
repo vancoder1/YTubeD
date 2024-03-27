@@ -30,13 +30,13 @@
     <Page Update="Styles\ButtonStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\CustomColorPalette.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Styles\WindowStyle.xaml">
+    <Page Update="Styles\MaterialDesignWindowStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Settings\SettingsLabelStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\TextBoxStyle.xaml">

@@ -20,16 +20,30 @@ namespace YTubeD.MVVM.ViewModels
     {
         // Properties and fields
         public Downloader YTDownloader { get; set; }
-        public ObservableCollection<IStreamInfo> _qualities;
+        private object _currentView;
+        private bool _isUrlValid;
+        private string _url;
+        private ObservableCollection<IStreamInfo> _qualities;
+        private IStreamInfo _selectedQuality;
+        private string _statusMessage;
 
-        public bool IsUrlValid
+        public object CurrentView
         {
-            get => IsUrlValid;
+            get => _currentView;
             set
             {
-                if (IsUrlValid != value)
+                _currentView = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool IsUrlValid
+        {
+            get => _isUrlValid;
+            set
+            {
+                if (_isUrlValid != value)
                 {
-                    IsUrlValid = value;
+                    _isUrlValid = value;
                     OnPropertyChanged();
                 }
             }
@@ -41,7 +55,7 @@ namespace YTubeD.MVVM.ViewModels
             {
                 YTDownloader.Url = value;
                 OnPropertyChanged();
-                ValidateUrlCommand.Execute(null);
+                //ValidateUrlCommand.Execute(null);
             }
         }
         public string SavingPath
@@ -64,19 +78,19 @@ namespace YTubeD.MVVM.ViewModels
         }
         public IStreamInfo SelectedQuality
         {
-            get => SelectedQuality;
+            get => _selectedQuality;
             set
             {
-                SelectedQuality = value;
+                _selectedQuality = value;
                 OnPropertyChanged();
             }
         }
         public string StatusMessage
         {
-            get => StatusMessage;
+            get => _statusMessage;
             set
             {
-                StatusMessage = value;
+                _statusMessage = value;
                 OnPropertyChanged();
             }
         }

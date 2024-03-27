@@ -7,15 +7,18 @@
              StartupUri="MVVM/Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <SolidColorBrush x:Key="BarDarkColor" Color="#171717"/>
             <ResourceDictionary.MergedDictionaries>
+                <!--Material Theme-->
+                <materialDesign:CustomColorTheme BaseTheme="Dark" PrimaryColor="#EEEEEE" SecondaryColor="#171717"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
+                
+                <!--Local Styles-->
                 <ResourceDictionary Source="Styles/TextBoxStyle.xaml"/>
-                <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
+                <ResourceDictionary Source="Styles/MaterialDesignWindowStyle.xaml"/>
                 <ResourceDictionary Source="Styles/ComboBoxStyle.xaml"/>
                 <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
-
-                <!--Material Theme-->
-                <materialDesign:CustomColorTheme BaseTheme="Dark" PrimaryColor="#262626" SecondaryColor="#EEEEEE"/>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
+                <ResourceDictionary Source="Styles/Settings/SettingsLabelStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

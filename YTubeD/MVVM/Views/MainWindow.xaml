@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen"
         Title="YTubeD"
         Icon="pack://application:,,,/Images/Icons/favicon.ico"
-        Style="{StaticResource MaterialDesignControlStyle}">
+        Style="{StaticResource MaterialDesignWindowStyle}">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
@@ -21,11 +21,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <!--Grid.Row 0-->
-        <Grid Grid.Row="0" Background="#171717">
+        <Grid Grid.Row="0" Background="{StaticResource BarDarkColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -41,18 +40,20 @@
             <Button Grid.Row="0" Grid.Column="1"
                     Height="40" Width="40"
                     Padding="0"
-                    Style="{DynamicResource MaterialDesignFlatSecondaryButton}">
+                    Style="{DynamicResource MaterialDesignFlatButton}">
                 <materialDesign:PackIcon Height="30" Width="30" Kind="ArrowRight"/>
             </Button>
             <Button Grid.Row="0" Grid.Column="2"
                     Height="40" Width="40"
                     Padding="0"
                     Margin="10 20 10 20"
-                    Style="{DynamicResource MaterialDesignFlatSecondaryButton}"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{Binding OpenSettingsCommand}">
                 <materialDesign:PackIcon Height="30" Width="30" Kind="Settings"/>
             </Button>
         </Grid>
+
+        <!--Grid.Row 1-->
 
 
         <!--Grid Row 1-->

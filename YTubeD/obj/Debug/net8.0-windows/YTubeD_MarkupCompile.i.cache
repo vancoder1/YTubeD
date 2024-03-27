@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Work\C#\YTubeD\YTubeD\App.xaml
-9-1775987321
+9-2100892109
 
 141576943516
 219-1236967298
-Fonts\CustomFonts.xaml;MVVM\Views\Components\DashboardView.xaml;MVVM\Views\Dialogs\SettingsWindow.xaml;MVVM\Views\MainWindow.xaml;Styles\ButtonStyle.xaml;Styles\ComboBoxStyle.xaml;Styles\CustomColorPalette.xaml;Styles\TextBoxStyle.xaml;Styles\WindowStyle.xaml;
+Fonts\CustomFonts.xaml;MVVM\Views\Components\DashboardView.xaml;MVVM\Views\Dialogs\SettingsWindow.xaml;MVVM\Views\MainWindow.xaml;Styles\ButtonStyle.xaml;Styles\ComboBoxStyle.xaml;Styles\MaterialDesignWindowStyle.xaml;Styles\Settings\SettingsLabelStyle.xaml;Styles\TextBoxStyle.xaml;
 
-False
+True
 

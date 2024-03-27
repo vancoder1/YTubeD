@@ -10,6 +10,7 @@
         "dependencies": {
           "MaterialDesignColors": "3.0.0",
           "MaterialDesignThemes": "5.0.0",
+          "MaterialDesignThemes.MahApps": "1.0.0",
           "Newtonsoft.Json": "13.0.3",
           "Ookii.Dialogs.Wpf": "5.0.1",
           "System.Net.Http": "4.3.4",
@@ -39,6 +40,29 @@
           }
         }
       },
+      "ControlzEx/4.3.0": {
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39",
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/ControlzEx.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.3.0.108"
+          }
+        }
+      },
+      "MahApps.Metro/2.0.0": {
+        "dependencies": {
+          "ControlzEx": "4.3.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/MahApps.Metro.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.894"
+          }
+        }
+      },
       "MaterialDesignColors/3.0.0": {
         "runtime": {
           "lib/net7.0/MaterialDesignColors.dll": {
@@ -56,6 +80,19 @@
           "lib/net7.0/MaterialDesignThemes.Wpf.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "MaterialDesignThemes.MahApps/1.0.0": {
+        "dependencies": {
+          "MahApps.Metro": "2.0.0",
+          "MaterialDesignColors": "3.0.0",
+          "MaterialDesignThemes": "5.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/MaterialDesignThemes.MahApps.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -463,6 +500,7 @@
         }
       },
       "System.Text.Encoding.CodePages/8.0.0": {},
+      "System.Text.Json/4.7.2": {},
       "System.Threading/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0",
@@ -521,6 +559,20 @@
       "path": "cliwrap/3.6.4",
       "hashPath": "cliwrap.3.6.4.nupkg.sha512"
     },
+    "ControlzEx/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I7PKmQNIMO9+s4s50WXOApotnyEKL9G8vvYrZY7CLe7nufXwRSv+vWPrd4BYwZDQiWHbBwnXsC8zUPgPnEWr6g==",
+      "path": "controlzex/4.3.0",
+      "hashPath": "controlzex.4.3.0.nupkg.sha512"
+    },
+    "MahApps.Metro/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-btjlE3Q8iebJB+4TBJZLcJBQZshKYqfkcATj9AS8veq4a506uE71NOTE1OSoavOJ70xasBjcdc+VuN17l+kIqw==",
+      "path": "mahapps.metro/2.0.0",
+      "hashPath": "mahapps.metro.2.0.0.nupkg.sha512"
+    },
     "MaterialDesignColors/3.0.0": {
       "type": "package",
       "serviceable": true,
@@ -534,6 +586,13 @@
       "sha512": "sha512-Az/2+YP+AdtyNceaU42cFo7Fl7KBrFkMa56uvesR363kZyOrASb0OnMvi0Ou4j1x0zwGa19AaK/vspDUBNDlBQ==",
       "path": "materialdesignthemes/5.0.0",
       "hashPath": "materialdesignthemes.5.0.0.nupkg.sha512"
+    },
+    "MaterialDesignThemes.MahApps/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3EoUyXSwtby5jJG7dgPqEYmzIiqYQ4YYHk/cWLeGk+4q8QRYKcKW7Acqc82+/D3rkFzWkQUqdpbcOqjbYcEcPg==",
+      "path": "materialdesignthemes.mahapps/1.0.0",
+      "hashPath": "materialdesignthemes.mahapps.1.0.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.1": {
       "type": "package",
@@ -891,6 +950,13 @@
       "sha512": "sha512-OZIsVplFGaVY90G2SbpgU7EnCoOO5pw1t4ic21dBF3/1omrJFpAGoNAVpPyMVOC90/hvgkGG3VFqR13YgZMQfg==",
       "path": "system.text.encoding.codepages/8.0.0",
       "hashPath": "system.text.encoding.codepages.8.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/4.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
+      "path": "system.text.json/4.7.2",
+      "hashPath": "system.text.json.4.7.2.nupkg.sha512"
     },
     "System.Threading/4.3.0": {
       "type": "package",

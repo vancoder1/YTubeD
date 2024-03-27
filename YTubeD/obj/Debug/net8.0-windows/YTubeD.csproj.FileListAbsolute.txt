@@ -18,13 +18,11 @@ D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\ButtonStyle.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\ComboBoxStyle.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\ControlStyle.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\TextBoxStyle.baml
-D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\View\MainWindow.g.cs
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\App.g.cs
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD_MarkupCompile.cache
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD_MarkupCompile.lref
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\App.baml
-D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\View\MainWindow.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.g.resources
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.GeneratedMSBuildEditorConfig.editorconfig
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.AssemblyInfoInputs.cache
@@ -37,3 +35,8 @@ D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\refint\YTubeD.dll
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.pdb
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.genruntimeconfig.cache
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\ref\YTubeD.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\ControlzEx.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\MahApps.Metro.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\MaterialDesignThemes.MahApps.dll
+D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\MainWindow.g.cs
+D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\MainWindow.baml

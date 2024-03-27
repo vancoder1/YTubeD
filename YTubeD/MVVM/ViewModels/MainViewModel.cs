@@ -13,7 +13,7 @@ using System.Windows;
 using YoutubeExplode.Videos.Streams;
 using System.Formats.Asn1;
 
-namespace YTubeD.MVVM.ViewModel
+namespace YTubeD.MVVM.ViewModels
 {
     class MainViewModel : ObservableObject
     {
@@ -146,7 +146,14 @@ namespace YTubeD.MVVM.ViewModel
         private async void Download(object parameter)
         {
             StatusMessage = "Downloading...";
-            await YTDownloader.Download(SelectedQuality);
+            try
+            {
+                await YTDownloader.Download(SelectedQuality);
+            }
+            catch (ArgumentNullException e)
+            {
+                StatusMessage = e.Message;
+            }
             StatusMessage = "Download Completed!";
         }
     }

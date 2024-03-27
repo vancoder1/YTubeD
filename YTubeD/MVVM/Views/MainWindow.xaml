@@ -4,55 +4,49 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YTubeD"
-        xmlns:viewModel="clr-namespace:YTubeD.MVVM.ViewModel"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewModel="clr-namespace:YTubeD.MVVM.ViewModels"      
         mc:Ignorable="d"
         Height="420" Width="520"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Title="YTubeD"
         Icon="pack://application:,,,/Images/Icons/favicon.ico"
-        WindowStartupLocation="CenterScreen"
-        Style="{StaticResource ForegroundStyle}">
+        Style="{StaticResource MaterialDesignControlStyle}">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
     <Grid>
-        <Border Background="#393E46"/>
-        
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-            <!--Grid.Row 0-->
-            <Label Grid.Row="0"
-               Style="{StaticResource ForegroundStyle}"
+        <!--Grid.Row 0-->
+        <Label Grid.Row="0"
                Content="Video URL:"
                VerticalAlignment="Center"
                Margin="20 0 0 0"
                FontFamily="RubikMedium"
                FontSize="16"/>
-            <TextBox Grid.Row="0"
-                 Style="{StaticResource TextBoxStyle}"
+        <TextBox Grid.Row="0"
                  Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"
                  Height="40" Width="350"
                  VerticalAlignment="Center"
                  HorizontalAlignment="Right"
                  Margin="0 0 20 0"/>
 
-            <!--Grid Row 1-->
-            <Label Grid.Row="1"
-               Style="{StaticResource ForegroundStyle}"
+        <!--Grid Row 1-->
+        <Label Grid.Row="1"
                Content="Video Quality:"
                VerticalAlignment="Center"
                Margin="20 0 0 0"
                FontSize="16"/>
-            <ComboBox Grid.Row="1"
-                  Style="{StaticResource ComboBoxStyle}"
+        <ComboBox Grid.Row="1"
                   ItemsSource="{Binding Qualities, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding SelectedQuality}"
                   IsEnabled="{Binding IsUrlValid}"
@@ -62,47 +56,41 @@
                   HorizontalAlignment="Right"
                   Margin="0 0 20 0"/>
 
-            <!--Grid Row 2-->
-            <Label Grid.Row="2"
-               Style="{StaticResource ForegroundStyle}"
+        <!--Grid Row 2-->
+        <Label Grid.Row="2"
                Content="Save to path:"
                VerticalAlignment="Center"
                Margin="20 0 0 0"
                FontSize="16"/>
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0"
-                    Style="{StaticResource TextBoxStyle}"
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"
                     Text="{Binding SavingPath}"
                     IsReadOnly="True"
                     Height="40" Width="310"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Right"/>
-                <Button Grid.Column="1"
-                        Style="{StaticResource ButtonStyle}"
-                        BorderThickness="1 0 0 0"
+            <Button Grid.Column="1"
                         Height="40" Width="40"
                         Margin="0 0 20 0"
                         Content="..."
-                        Command="{Binding ChooseDirectoryCommand}"/>
-            </Grid>
-            
+                        Command="{Binding ChooseDirectoryCommand}"
+                        Style="{DynamicResource MaterialDesignPaperDarkButton}"/>
+        </Grid>
 
-            <!--Grid Row 3-->
-            <Button Grid.Row="3"
-                Style="{StaticResource ButtonStyle}"
+
+        <!--Grid Row 3-->
+        <Button Grid.Row="3"               
                 Height="80" Width="300"
                 Content="Download"
-                Command="{Binding DownloadCommand}"/>
-            <Label Grid.Row="3"
-                   Style="{StaticResource ForegroundStyle}"
+                Command="{Binding DownloadCommand}"
+                Style="{DynamicResource MaterialDesignPaperDarkButton}"/>
+        <Label Grid.Row="3"
                    Content="{Binding StatusMessage, UpdateSourceTrigger=PropertyChanged}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Bottom"/>
-        </Grid>
-
     </Grid>
 </Window>

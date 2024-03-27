@@ -11,7 +11,7 @@ YTubeD is a simple and intuitive YouTube downloader application built using WPF 
 
 ## Requirements
 
-- Windows OS (Windows 7 or later); MacOS and Linux are not tested yet
+- Windows OS (Windows 7 or later)
 - .NET 8 Runtime
 
 ## Installation

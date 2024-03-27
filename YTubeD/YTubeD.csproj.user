@@ -10,7 +10,7 @@
     <Page Update="Fonts\CustomFonts.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\MainWindow.xaml">
+    <Page Update="MVVM\Views\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ButtonStyle.xaml">

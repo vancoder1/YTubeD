@@ -12,26 +12,24 @@ using YTubeD.MVVM.Model;
 using System.Windows;
 using YoutubeExplode.Videos.Streams;
 using System.Formats.Asn1;
+using YTubeD.MVVM.Views.Dialogs;
 
 namespace YTubeD.MVVM.ViewModels
 {
     class MainViewModel : ObservableObject
     {
         // Properties and fields
-        Downloader YTDownloader { get; set; }       
-        private bool _isUrlValid;
-        private ObservableCollection<IStreamInfo> _qualities;
-        private IStreamInfo _selectedQuality;
-        private string _statusMessage;
+        public Downloader YTDownloader { get; set; }
+        public ObservableCollection<IStreamInfo> _qualities;
 
         public bool IsUrlValid
         {
-            get => _isUrlValid;
+            get => IsUrlValid;
             set
             {
-                if (_isUrlValid != value)
+                if (IsUrlValid != value)
                 {
-                    _isUrlValid = value;
+                    IsUrlValid = value;
                     OnPropertyChanged();
                 }
             }
@@ -66,19 +64,19 @@ namespace YTubeD.MVVM.ViewModels
         }
         public IStreamInfo SelectedQuality
         {
-            get => _selectedQuality;
+            get => SelectedQuality;
             set
             {
-                _selectedQuality = value;
+                SelectedQuality = value;
                 OnPropertyChanged();
             }
         }
         public string StatusMessage
         {
-            get => _statusMessage;
+            get => StatusMessage;
             set
             {
-                _statusMessage = value;
+                StatusMessage = value;
                 OnPropertyChanged();
             }
         }
@@ -87,6 +85,7 @@ namespace YTubeD.MVVM.ViewModels
         public ICommand ValidateUrlCommand { get; }
         public ICommand ChooseDirectoryCommand { get; }
         public ICommand DownloadCommand { get; }
+        public ICommand OpenSettingsCommand { get; }
 
         // Methods
         public MainViewModel()
@@ -96,6 +95,7 @@ namespace YTubeD.MVVM.ViewModels
             ValidateUrlCommand = new RelayCommand(ValidateUrl);
             ChooseDirectoryCommand = new RelayCommand(ChooseDirectory);
             DownloadCommand = new RelayCommand(Download);
+            OpenSettingsCommand = new RelayCommand(OpenSettings);
         }
 
         private async void ValidateUrl(object parameter)
@@ -155,6 +155,13 @@ namespace YTubeD.MVVM.ViewModels
                 StatusMessage = e.Message;
             }
             StatusMessage = "Download Completed!";
+        }
+
+        private void OpenSettings(object parameter)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.DataContext = new SettingsViewModel();
+            settingsWindow.ShowDialog();
         }
     }
 }

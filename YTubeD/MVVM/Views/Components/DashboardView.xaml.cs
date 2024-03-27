@@ -12,17 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace YTubeD.MVVM.Views.Dialogs
+namespace YTubeD.MVVM.Views.Components
 {
     /// <summary>
-    /// Interaction logic for SettingsWindow.xaml
+    /// Interaction logic for DashboardView.xaml
     /// </summary>
-    public partial class SettingsWindow : Window
+    public partial class DashboardView : Window
     {
-        public SettingsWindow()
+        public DashboardView()
         {
             InitializeComponent();
-            this.Owner = Application.Current.MainWindow;
         }
     }
 }

@@ -43,3 +43,5 @@ D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Dialogs\SettingsWin
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Dialogs\SettingsWindow.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\WindowStyle.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\CustomColorPalette.baml
+D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Components\DashboardView.g.cs
+D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Components\DashboardView.baml

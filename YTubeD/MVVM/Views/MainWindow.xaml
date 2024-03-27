@@ -48,7 +48,8 @@
                     Height="40" Width="40"
                     Padding="0"
                     Margin="10 20 10 20"
-                    Style="{DynamicResource MaterialDesignFlatSecondaryButton}">
+                    Style="{DynamicResource MaterialDesignFlatSecondaryButton}"
+                    Command="{Binding OpenSettingsCommand}">
                 <materialDesign:PackIcon Height="30" Width="30" Kind="Settings"/>
             </Button>
         </Grid>

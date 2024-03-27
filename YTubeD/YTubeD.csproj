@@ -32,8 +32,4 @@
     <Resource Include="Images\Icons\favicon.ico" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="MVVM\Views\Dialogs\" />
-  </ItemGroup>
-
 </Project>

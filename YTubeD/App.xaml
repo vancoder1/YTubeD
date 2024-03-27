@@ -9,14 +9,13 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/TextBoxStyle.xaml"/>
-                <ResourceDictionary Source="Styles/ControlStyle.xaml"/>
+                <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
                 <ResourceDictionary Source="Styles/ComboBoxStyle.xaml"/>
                 <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
 
                 <!--Material Theme-->
-                <materialDesign:BundledTheme  BaseTheme="Inherit" PrimaryColor="Grey" SecondaryColor="Amber" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+                <materialDesign:CustomColorTheme BaseTheme="Dark" PrimaryColor="#262626" SecondaryColor="#EEEEEE"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

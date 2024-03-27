@@ -8,7 +8,6 @@
         xmlns:viewModel="clr-namespace:YTubeD.MVVM.ViewModels"      
         mc:Ignorable="d"
         Height="420" Width="520"
-        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Title="YTubeD"
         Icon="pack://application:,,,/Images/Icons/favicon.ico"
@@ -20,33 +19,42 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        
         <!--Grid.Row 0-->
-        <Label Grid.Row="0"
-               Content="Video URL:"
-               VerticalAlignment="Center"
-               Margin="20 0 0 0"
-               FontFamily="RubikMedium"
-               FontSize="16"/>
-        <TextBox Grid.Row="0"
-                 Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"
-                 Height="40" Width="350"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Right"
-                 Margin="0 0 20 0"/>
+        <Grid Grid.Row="0" Background="#171717">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Row="0" Grid.Column="0"
+                     Height="40"
+                     Padding="10"
+                     Margin="20 20 0 20"
+                     Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"
+                     materialDesign:HintAssist.Hint="Enter URL..."/>
+            <Button Grid.Row="0" Grid.Column="1"
+                    Height="40" Width="40"
+                    Padding="0"
+                    Style="{DynamicResource MaterialDesignFlatSecondaryButton}">
+                <materialDesign:PackIcon Height="30" Width="30" Kind="ArrowRight"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="2"
+                    Height="40" Width="40"
+                    Padding="0"
+                    Style="{DynamicResource MaterialDesignFlatSecondaryButton}">
+                <materialDesign:PackIcon Height="30" Width="30" Kind="Settings"/>
+            </Button>
+        </Grid>
+
 
         <!--Grid Row 1-->
-        <Label Grid.Row="1"
-               Content="Video Quality:"
-               VerticalAlignment="Center"
-               Margin="20 0 0 0"
-               FontSize="16"/>
-        <ComboBox Grid.Row="1"
+        <!--<ComboBox Grid.Row="1"
                   ItemsSource="{Binding Qualities, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding SelectedQuality}"
                   IsEnabled="{Binding IsUrlValid}"
@@ -54,36 +62,10 @@
                   Height="40" Width="350"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Right"
-                  Margin="0 0 20 0"/>
-
-        <!--Grid Row 2-->
-        <Label Grid.Row="2"
-               Content="Save to path:"
-               VerticalAlignment="Center"
-               Margin="20 0 0 0"
-               FontSize="16"/>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0"
-                    Text="{Binding SavingPath}"
-                    IsReadOnly="True"
-                    Height="40" Width="310"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"/>
-            <Button Grid.Column="1"
-                        Height="40" Width="40"
-                        Margin="0 0 20 0"
-                        Content="..."
-                        Command="{Binding ChooseDirectoryCommand}"
-                        Style="{DynamicResource MaterialDesignPaperDarkButton}"/>
-        </Grid>
-
+                  Margin="0 0 20 0"/>-->
 
         <!--Grid Row 3-->
-        <Button Grid.Row="3"               
+        <!--<Button Grid.Row="3"               
                 Height="80" Width="300"
                 Content="Download"
                 Command="{Binding DownloadCommand}"
@@ -91,6 +73,6 @@
         <Label Grid.Row="3"
                    Content="{Binding StatusMessage, UpdateSourceTrigger=PropertyChanged}"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Bottom"/>
+                   VerticalAlignment="Bottom"/>-->
     </Grid>
 </Window>

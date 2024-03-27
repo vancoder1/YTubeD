@@ -3,7 +3,7 @@
     <Style TargetType="{x:Type Control}"
            x:Key="MaterialDesignControlStyle">
         <Style.Setters>
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignBackground}"/>
+            <Setter Property="Background" Value="#212121"/>
             <Setter Property="FontFamily" Value="{DynamicResource MaterialDesignFont}"/>
             <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialDesignBody}"/>
             <Setter Property="TextElement.FontSize" Value="16"/>
@@ -13,6 +13,8 @@
             <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
             <Setter Property="TextOptions.TextRenderingMode" Value="Auto"/>
             <Setter Property="UseLayoutRounding" Value="True"/>
+            <Setter Property="MinWidth" Value="350"/>
+            <Setter Property="MinHeight" Value="250"/>
         </Style.Setters>
     </Style>
 </ResourceDictionary>

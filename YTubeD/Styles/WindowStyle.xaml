@@ -14,7 +14,7 @@
             <Setter Property="TextOptions.TextRenderingMode" Value="Auto"/>
             <Setter Property="UseLayoutRounding" Value="True"/>
             <Setter Property="MinWidth" Value="350"/>
-            <Setter Property="MinHeight" Value="250"/>
+            <Setter Property="MinHeight" Value="300"/>
         </Style.Setters>
     </Style>
 </ResourceDictionary>

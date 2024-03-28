@@ -41,7 +41,9 @@ D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\MainWindow.g.cs
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\MainWindow.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Dialogs\SettingsWindow.g.cs
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Dialogs\SettingsWindow.baml
-D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Components\DashboardView.g.cs
-D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Components\DashboardView.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\MaterialDesignWindowStyle.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\Settings\SettingsLabelStyle.baml
+D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Components\EmptyDownloaderView.g.cs
+D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Components\VideoDownloaderView.g.cs
+D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Components\EmptyDownloaderView.baml
+D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\MVVM\Views\Components\VideoDownloaderView.baml

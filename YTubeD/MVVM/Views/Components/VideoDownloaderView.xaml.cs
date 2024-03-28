@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace YTubeD.MVVM.Views.Components
 {
     /// <summary>
-    /// Interaction logic for DashboardView.xaml
+    /// Interaction logic for VideoDownloaderView.xaml
     /// </summary>
-    public partial class DashboardView : Window
+    public partial class VideoDownloaderView : UserControl
     {
-        public DashboardView()
+        public VideoDownloaderView()
         {
             InitializeComponent();
         }

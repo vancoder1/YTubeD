@@ -7,7 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MVVM\Views\Components\DashboardView.xaml.cs">
+    <Compile Update="MVVM\Views\Components\EmptyDownloaderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\Components\VideoDownloaderView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\Dialogs\SettingsWindow.xaml.cs">
@@ -18,7 +21,10 @@
     <Page Update="Fonts\CustomFonts.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\Views\Components\DashboardView.xaml">
+    <Page Update="MVVM\Views\Components\EmptyDownloaderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\Components\VideoDownloaderView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\Dialogs\SettingsWindow.xaml">

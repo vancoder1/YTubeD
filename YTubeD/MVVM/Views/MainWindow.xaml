@@ -1,26 +1,28 @@
-﻿<Window x:Class="YTubeD.MainWindow"
+﻿<Window x:Class="YTubeD.MVVM.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:YTubeD"
+        xmlns:local="clr-namespace:YTubeD.MVVM.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:viewModel="clr-namespace:YTubeD.MVVM.ViewModels"      
+        xmlns:viewModels="clr-namespace:YTubeD.MVVM.ViewModels"
+        xmlns:components="clr-namespace:YTubeD.MVVM.Views.Components"
+        xmlns:dialogs="clr-namespace:YTubeD.MVVM.Views.Dialogs"
         mc:Ignorable="d"
         Height="400" Width="500"
         WindowStartupLocation="CenterScreen"
         Title="YTubeD"
         Icon="pack://application:,,,/Images/Icons/favicon.ico"
         Style="{StaticResource MaterialDesignWindowStyle}">
-
+    
     <Window.DataContext>
-        <viewModel:MainViewModel/>
+        <viewModels:MainViewModel/>
     </Window.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!--Grid.Row 0-->
@@ -54,7 +56,10 @@
         </Grid>
 
         <!--Grid.Row 1-->
-
+        <ContentControl Grid.Row="1"
+                        Margin="10"
+                        Content="{Binding CurrentView}">
+        </ContentControl>
 
         <!--Grid Row 1-->
         <!--<ComboBox Grid.Row="1"

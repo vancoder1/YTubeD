@@ -13,15 +13,24 @@ using System.Windows;
 using YoutubeExplode.Videos.Streams;
 using System.Formats.Asn1;
 using YTubeD.MVVM.Views.Dialogs;
+using YTubeD.MVVM.ViewModels.Components;
 
 namespace YTubeD.MVVM.ViewModels
 {
     class MainViewModel : ObservableObject
     {
-        // Properties and fields
-        public EmptyDownloaderViewModel EmptyDownloaderVM { get; set; }
         public VideoDownloaderViewModel VideoDownloaderVM { get; set; }
 
+        private string _url;
+        public string Url
+        {
+            get => _url;
+            set
+            {
+                _url = value;
+                OnPropertyChanged();
+            }
+        }
         private object _currentView;
         public object CurrentView
         {
@@ -33,24 +42,25 @@ namespace YTubeD.MVVM.ViewModels
             }
         }
 
-        // Commands
         public ICommand OpenSettingsCommand { get; }
+        public ICommand SubmitUrlCommand { get; }
 
-        // Constructor
         public MainViewModel()
         {
-            EmptyDownloaderVM = new EmptyDownloaderViewModel();
             VideoDownloaderVM = new VideoDownloaderViewModel();
             OpenSettingsCommand = new RelayCommand(OpenSettings);
+            SubmitUrlCommand = new RelayCommand(SubmitUrl);
             CurrentView = VideoDownloaderVM;
         }
 
-        // Methods
         private void OpenSettings(object parameter)
         {
             SettingsWindow settingsWindow = new SettingsWindow();
-            settingsWindow.DataContext = new SettingsViewModel();
             settingsWindow.ShowDialog();
+        }
+        private void SubmitUrl(object parameter)
+        {
+            VideoDownloaderVM.YTDownloader.Url = Url;
         }
     }
 }

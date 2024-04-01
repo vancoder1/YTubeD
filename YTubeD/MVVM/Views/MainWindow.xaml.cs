@@ -20,7 +20,7 @@ namespace YTubeD.MVVM.Views
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            this.DataContext = new MainViewModel();
         }
     }
 }

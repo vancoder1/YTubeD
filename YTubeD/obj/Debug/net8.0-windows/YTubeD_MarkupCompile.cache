@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Work\C#\YTubeD\YTubeD\App.xaml
-10-428208153
+8-280366522
 
-15478422541
+13-2129190741
 219-1236967298
-Fonts\CustomFonts.xaml;MVVM\Views\Components\EmptyDownloaderView.xaml;MVVM\Views\Components\VideoDownloaderView.xaml;MVVM\Views\Dialogs\SettingsWindow.xaml;MVVM\Views\MainWindow.xaml;Styles\ButtonStyle.xaml;Styles\ComboBoxStyle.xaml;Styles\MaterialDesignWindowStyle.xaml;Styles\Settings\SettingsLabelStyle.xaml;Styles\TextBoxStyle.xaml;
+Fonts\CustomFonts.xaml;MVVM\Views\Components\VideoDownloaderView.xaml;MVVM\Views\Dialogs\SettingsWindow.xaml;MVVM\Views\MainWindow.xaml;Styles\MaterialDesignWindowStyle.xaml;Styles\SmallComboBoxStyle.xaml;Styles\SmallTextBlockStyle.xaml;Styles\SmallTextBoxStyle.xaml;
 
 False
 

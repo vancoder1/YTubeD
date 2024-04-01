@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YTubeD.MVVM.ViewModels.Components;
 
 namespace YTubeD.MVVM.Views.Components
 {
@@ -23,6 +24,7 @@ namespace YTubeD.MVVM.Views.Components
         public VideoDownloaderView()
         {
             InitializeComponent();
+            this.DataContext = new VideoDownloaderViewModel();
         }
     }
 }

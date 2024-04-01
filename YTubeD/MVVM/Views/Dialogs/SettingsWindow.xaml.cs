@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YTubeD.MVVM.ViewModels.Dialogs;
 
 namespace YTubeD.MVVM.Views.Dialogs
 {
@@ -22,6 +23,7 @@ namespace YTubeD.MVVM.Views.Dialogs
         public SettingsWindow()
         {
             InitializeComponent();
+            this.DataContext = new SettingsViewModel();
             this.Owner = Application.Current.MainWindow;
         }
     }

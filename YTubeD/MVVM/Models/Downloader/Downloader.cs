@@ -15,41 +15,19 @@ using YoutubeExplode.Videos.Streams;
 using YoutubeExplode.Converter;
 using YTubeD.Core;
 using System.Drawing.Drawing2D;
+using YTubeD.MVVM.Models.Downloader;
 
 namespace YTubeD.MVVM.Model
 {
     internal class Downloader : ObservableObject
     {
-        private string _outputDirectory = string.Empty;
-        private string _url = string.Empty;
-
-        public Video YoutubeVideo { get; set; }
         public YoutubeClient Client { get; set; }
-        public string Url
-        {
-            get => _url;
-            set
-            {
-                _url = value;
-                OnPropertyChanged();
-            }
-        }
-        public string OutputDirectory 
-        {
-            get => _outputDirectory;
-            set
-            {
-                _outputDirectory = value;
-                OnPropertyChanged();
-            }
-        }
-
         public Downloader()
         {
             Client = new YoutubeClient();
         }
 
-        public async Task<bool> IsUrlValid()
+        public async Task<bool> IsUrlValid(string Url)
         {
             try
             {
@@ -66,7 +44,7 @@ namespace YTubeD.MVVM.Model
                     // Check if the response contains the video title
                     if (oembedData["title"] != null)
                     {
-                        return true; // Video exists
+                        return true;
                     }
                 }
             }
@@ -74,10 +52,10 @@ namespace YTubeD.MVVM.Model
             {
                 Console.WriteLine($"Error occurred: {ex.Message}");
             }
-            return false; // URL is not valid or video does not exist
+            return false;
         }
 
-        public async Task<IEnumerable<IStreamInfo>> FetchInfo()
+        public async Task<IEnumerable<IStreamInfo>> FetchInfo(string Url)
         {
             var streamManifest = await Client.Videos.Streams.GetManifestAsync(Url);
             var videoStreamInfos = streamManifest.GetVideoOnlyStreams()
@@ -93,21 +71,22 @@ namespace YTubeD.MVVM.Model
             combinedStreams.AddRange(videoStreamInfos);
             combinedStreams.Add(audioStreamInfo);
 
-            YoutubeVideo = await Client.Videos.GetAsync(Url);
+            Video youtubeVideo = await Client.Videos.GetAsync(Url);
 
             return combinedStreams;
         }
 
-        public async Task Download(IStreamInfo quality)
+        public async Task Download(string Url, IStreamInfo quality, VideoInfo video, string outputDirectory)
         {
             if (quality == null)
             {
                 throw new ArgumentNullException();
             }
-            
-            string sanitizedTitle = string.Join("_", YoutubeVideo.Title.Split(Path.GetInvalidFileNameChars()));
-            string outputFilePath = Path.Combine(OutputDirectory, $"{sanitizedTitle}.{quality.Container}");
-            var stream = await Client.Videos.Streams.GetManifestAsync(Url);
+
+            YoutubeClient client = new YoutubeClient();
+            string sanitizedTitle = string.Join("_", video.Title.Split(Path.GetInvalidFileNameChars()));
+            string outputFilePath = Path.Combine(outputDirectory, $"{sanitizedTitle}.{quality.Container}");
+            var stream = await client.Videos.Streams.GetManifestAsync(Url);
             if (quality is IVideoStreamInfo)
             {
                 var audioStreamInfo = stream
@@ -115,12 +94,12 @@ namespace YTubeD.MVVM.Model
                     .Where(s => s.Container == quality.Container)
                     .GetWithHighestBitrate();
                 var streamInfos = new IStreamInfo[] { audioStreamInfo, quality };
-                await Client.Videos.DownloadAsync(streamInfos, new ConversionRequestBuilder(outputFilePath)
+                await client.Videos.DownloadAsync(streamInfos, new ConversionRequestBuilder(outputFilePath)
                 .Build());
             }
             else
             {
-                await Client.Videos.Streams.DownloadAsync(quality, outputFilePath);
+                await client.Videos.Streams.DownloadAsync(quality, outputFilePath);
             }
             
         }

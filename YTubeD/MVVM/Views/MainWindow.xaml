@@ -6,14 +6,12 @@
         xmlns:local="clr-namespace:YTubeD.MVVM.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:viewModels="clr-namespace:YTubeD.MVVM.ViewModels"
-        xmlns:components="clr-namespace:YTubeD.MVVM.Views.Components"
-        xmlns:dialogs="clr-namespace:YTubeD.MVVM.Views.Dialogs"
-        mc:Ignorable="d"
         Height="400" Width="500"
         WindowStartupLocation="CenterScreen"
         Title="YTubeD"
         Icon="pack://application:,,,/Images/Icons/favicon.ico"
-        Style="{StaticResource MaterialDesignWindowStyle}">
+        Style="{StaticResource MaterialDesignWindowStyle}"
+        mc:Ignorable="d">
     
     <Window.DataContext>
         <viewModels:MainViewModel/>
@@ -40,15 +38,15 @@
                      Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"
                      materialDesign:HintAssist.Hint="Enter URL..."/>
             <Button Grid.Row="0" Grid.Column="1"
-                    Height="40" Width="40"
                     Padding="0"
-                    Style="{DynamicResource MaterialDesignFlatButton}">
+                    Margin="5"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    Command="{Binding SubmitUrlCommand}">
                 <materialDesign:PackIcon Height="30" Width="30" Kind="ArrowRight"/>
             </Button>
             <Button Grid.Row="0" Grid.Column="2"
-                    Height="40" Width="40"
                     Padding="0"
-                    Margin="10 20 10 20"
+                    Margin="10 20"
                     Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{Binding OpenSettingsCommand}">
                 <materialDesign:PackIcon Height="30" Width="30" Kind="Settings"/>
@@ -58,29 +56,7 @@
         <!--Grid.Row 1-->
         <ContentControl Grid.Row="1"
                         Margin="10"
-                        Content="{Binding CurrentView}">
-        </ContentControl>
+                        Content="{Binding CurrentView}"/>
 
-        <!--Grid Row 1-->
-        <!--<ComboBox Grid.Row="1"
-                  ItemsSource="{Binding Qualities, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding SelectedQuality}"
-                  IsEnabled="{Binding IsUrlValid}"
-                  IsReadOnly="True"
-                  Height="40" Width="350"
-                  VerticalAlignment="Center"
-                  HorizontalAlignment="Right"
-                  Margin="0 0 20 0"/>-->
-
-        <!--Grid Row 3-->
-        <!--<Button Grid.Row="3"               
-                Height="80" Width="300"
-                Content="Download"
-                Command="{Binding DownloadCommand}"
-                Style="{DynamicResource MaterialDesignPaperDarkButton}"/>
-        <Label Grid.Row="3"
-                   Content="{Binding StatusMessage, UpdateSourceTrigger=PropertyChanged}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Bottom"/>-->
     </Grid>
 </Window>

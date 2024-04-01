@@ -5,7 +5,7 @@
              xmlns:viewModels="clr-namespace:YTubeD.MVVM.ViewModels"
              xmlns:views="clr-namespace:YTubeD.MVVM.Views"
              xmlns:components="clr-namespace:YTubeD.MVVM.Views.Components"
-             xmlns:dialogs="clr-namespace:YTubeD.MVVM.Views.Dialogs"
+             xmlns:componentViewModels="clr-namespace:YTubeD.MVVM.ViewModels.Components"             
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MVVM/Views/MainWindow.xaml">
     <Application.Resources>
@@ -14,18 +14,14 @@
                 <!--Material Theme-->
                 <materialDesign:CustomColorTheme BaseTheme="Dark" PrimaryColor="#EEEEEE" SecondaryColor="#171717"/>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
-                <!--Local Styles-->
-                <ResourceDictionary Source="Styles/TextBoxStyle.xaml"/>
+                <!--Local Styles-->                
                 <ResourceDictionary Source="Styles/MaterialDesignWindowStyle.xaml"/>
-                <ResourceDictionary Source="Styles/ComboBoxStyle.xaml"/>
-                <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
-                <ResourceDictionary Source="Styles/Settings/SettingsLabelStyle.xaml"/>
+                <ResourceDictionary Source="Styles/SmallTextBoxStyle.xaml"/>
+                <ResourceDictionary Source="Styles/SmallComboBoxStyle.xaml"/>
+                <ResourceDictionary Source="Styles/SmallTextBlockStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush x:Key="BarDarkColor" Color="#171717"/>
-            <DataTemplate DataType="{x:Type viewModels:EmptyDownloaderViewModel}">
-                <components:EmptyDownloaderView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModels:VideoDownloaderViewModel}">
+            <DataTemplate DataType="{x:Type componentViewModels:VideoDownloaderViewModel}">
                 <components:VideoDownloaderView/>
             </DataTemplate>
         </ResourceDictionary>

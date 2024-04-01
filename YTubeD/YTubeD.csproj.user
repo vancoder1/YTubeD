@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MVVM\Views\Components\EmptyDownloaderView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="MVVM\Views\Components\VideoDownloaderView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,9 +18,6 @@
     <Page Update="Fonts\CustomFonts.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\Views\Components\EmptyDownloaderView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MVVM\Views\Components\VideoDownloaderView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -33,19 +27,16 @@
     <Page Update="MVVM\Views\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\ButtonStyle.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Styles\MaterialDesignWindowStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\ComboBoxStyle.xaml">
+    <Page Update="Styles\SmallComboBoxStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\Settings\SettingsLabelStyle.xaml">
+    <Page Update="Styles\SmallTextBlockStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\TextBoxStyle.xaml">
+    <Page Update="Styles\SmallTextBoxStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

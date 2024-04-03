@@ -44,3 +44,5 @@ D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\refint\YTubeD.dll
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.pdb
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.genruntimeconfig.cache
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\ref\YTubeD.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.dll.config
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Prism.dll

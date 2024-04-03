@@ -13,6 +13,7 @@
           "MaterialDesignThemes.MahApps": "1.0.0",
           "Newtonsoft.Json": "13.0.3",
           "Ookii.Dialogs.Wpf": "5.0.1",
+          "Prism.Core": "8.1.97",
           "System.Net.Http": "4.3.4",
           "YoutubeExplode": "6.3.13",
           "YoutubeExplode.Converter": "6.3.13"
@@ -119,6 +120,14 @@
           "lib/net6.0-windows7.0/Ookii.Dialogs.Wpf.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.1.0"
+          }
+        }
+      },
+      "Prism.Core/8.1.97": {
+        "runtime": {
+          "lib/net5.0/Prism.dll": {
+            "assemblyVersion": "8.1.97.5141",
+            "fileVersion": "8.1.97.5141"
           }
         }
       },
@@ -628,6 +637,13 @@
       "sha512": "sha512-iZNnZwqTpK0cfR0vkotncP1c025/PHlIdzc7iEKBYwhVv1V0zXp9/RT/O0kMhsmlwXqRxxbE4pdhfinbJXtjPg==",
       "path": "ookii.dialogs.wpf/5.0.1",
       "hashPath": "ookii.dialogs.wpf.5.0.1.nupkg.sha512"
+    },
+    "Prism.Core/8.1.97": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EP5zrvWddw3eSq25Y7hHnDYdmLZEC2Z/gMrvmHzUuLbitmA1UaS7wQUlSwNr9Km8lzJNCvytFnaGBEFukHgoHg==",
+      "path": "prism.core/8.1.97",
+      "hashPath": "prism.core.8.1.97.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

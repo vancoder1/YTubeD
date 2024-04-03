@@ -14,6 +14,8 @@ using YoutubeExplode.Videos.Streams;
 using System.Formats.Asn1;
 using YTubeD.MVVM.Views.Dialogs;
 using YTubeD.MVVM.ViewModels.Components;
+using YTubeD.MVVM.Models.Downloader;
+using YTubeD.Utils;
 
 namespace YTubeD.MVVM.ViewModels
 {
@@ -21,16 +23,7 @@ namespace YTubeD.MVVM.ViewModels
     {
         public VideoDownloaderViewModel VideoDownloaderVM { get; set; }
 
-        private string _url;
-        public string Url
-        {
-            get => _url;
-            set
-            {
-                _url = value;
-                OnPropertyChanged();
-            }
-        }
+        private Downloader YTDownloader { get; set; }
         private object _currentView;
         public object CurrentView
         {
@@ -41,16 +34,31 @@ namespace YTubeD.MVVM.ViewModels
                 OnPropertyChanged();
             }
         }
+        private string _url;
+        public string Url
+        {
+            get => _url;
+            set
+            {
+                _url = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand OpenSettingsCommand { get; }
         public ICommand SubmitUrlCommand { get; }
 
         public MainViewModel()
-        {
-            VideoDownloaderVM = new VideoDownloaderViewModel();
+        {           
+            YTDownloader = new Downloader();
             OpenSettingsCommand = new RelayCommand(OpenSettings);
             SubmitUrlCommand = new RelayCommand(SubmitUrl);
-            CurrentView = VideoDownloaderVM;
+            VideoDownloaderVM = new VideoDownloaderViewModel();
+        }
+
+        public void UpdateUrl(string url)
+        {
+            EventAggregatorUtility.EventAggregator.GetEvent<UpdateUrlEvent>().Publish(url);
         }
 
         private void OpenSettings(object parameter)
@@ -58,9 +66,19 @@ namespace YTubeD.MVVM.ViewModels
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.ShowDialog();
         }
-        private void SubmitUrl(object parameter)
+
+        private async void SubmitUrl(object parameter)
         {
-            VideoDownloaderVM.YTDownloader.Url = Url;
+            if (Url != null)
+            {
+                if (await YTDownloader.IsUrlValid(Url))
+                {
+                    //VideoInfoFetcher infoFetcher = new VideoInfoFetcher();
+                    //VideoInfo info = await infoFetcher.GetVideoInfoAsync(Url);
+                    //VideoDownloaderVM.Videos.Add(info);
+                    UpdateUrl(Url);
+                }
+            }
         }
     }
 }

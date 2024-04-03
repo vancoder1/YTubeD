@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6aK+KID5iPypIpxsWCaAMn7wWNZjVwYkQ7q2TFO2zyh99VFRBjFLek0UvNxjYvpRKJeY/JFuMufuEBa0ngxKRw==",
+  "dgSpecHash": "uyvBGGnKbtxUyRPRO9Tr+Wg6rzN9bLiNmZy96bCgyeSrxjQdVWTnS3Vxx5Yk4lfLW5bfQXKJ+FD6mFoWxE7Vkw==",
   "success": true,
   "projectFilePath": "D:\\Work\\C#\\YTubeD\\YTubeD\\YTubeD.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\ivanz\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
     "C:\\Users\\ivanz\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\ivanz\\.nuget\\packages\\ookii.dialogs.wpf\\5.0.1\\ookii.dialogs.wpf.5.0.1.nupkg.sha512",
+    "C:\\Users\\ivanz\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
     "C:\\Users\\ivanz\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\ivanz\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\ivanz\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

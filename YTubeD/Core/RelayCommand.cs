@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace YTubeD.Core
 {
@@ -25,7 +20,7 @@ namespace YTubeD.Core
 
         public bool CanExecute(object? parameter)
         {
-            return this._canExecute == null || 
+            return this._canExecute == null ||
                 this._canExecute(parameter);
         }
 

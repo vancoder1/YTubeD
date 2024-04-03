@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Xml.Linq;
 using YoutubeExplode.Videos.Streams;
 using YTubeD.Core;
+using YTubeD.Utils;
 using YTubeD.MVVM.Model;
 using YTubeD.MVVM.Models.Downloader;
 
@@ -16,27 +18,11 @@ namespace YTubeD.MVVM.ViewModels.Components
     class VideoDownloaderViewModel : ObservableObject
     {
         public Downloader YTDownloader { get; set; }
-        private string _url = string.Empty;
-        public string Url
-        {
-            get => _url;
-            set
-            {
-                _url = value;
-                OnPropertyChanged();
-            }
-        }
-        private ObservableCollection<VideoInfo> _videos;
         public ObservableCollection<VideoInfo> Videos
         {
-            get => _videos;
-            set
-            {
-                _videos = value;
-                OnPropertyChanged();
-            }
+            get; set;
         }
-        private VideoInfo _selectedVideo;
+        private VideoInfo _selectedVideo = new VideoInfo();
         public VideoInfo SelectedVideo
         {
             get => _selectedVideo;
@@ -46,7 +32,27 @@ namespace YTubeD.MVVM.ViewModels.Components
                 OnPropertyChanged();
             }
         }
-        private string _statusMessage;
+        private ObservableCollection<DownloadOption> _downloadOptions;
+        public ObservableCollection<DownloadOption> DownloadOptions
+        {
+            get => _downloadOptions;
+            set
+            {
+                _downloadOptions = value;
+                OnPropertyChanged();
+            }
+        }
+        private DownloadOption _selectedOption;
+        public DownloadOption SelectedOption
+        {
+            get => _selectedOption;
+            set
+            {
+                _selectedOption = value;
+                OnPropertyChanged();
+            }
+        }
+        private string _statusMessage = string.Empty;
         public string StatusMessage
         {
             get => _statusMessage;
@@ -62,17 +68,41 @@ namespace YTubeD.MVVM.ViewModels.Components
 
         public VideoDownloaderViewModel()
         {
+            DownloadOptions = new ObservableCollection<DownloadOption>()
+            {
+                new DownloadOption(DownloadPreference.UpTo144p),
+                new DownloadOption(DownloadPreference.UpTo240p),
+                new DownloadOption(DownloadPreference.UpTo360p),
+                new DownloadOption(DownloadPreference.UpTo480p),
+                new DownloadOption(DownloadPreference.UpTo720p),
+                new DownloadOption(DownloadPreference.UpTo1080p),
+                new DownloadOption(DownloadPreference.UpTo1440p),
+                new DownloadOption(DownloadPreference.UpTo2160p),
+                new DownloadOption(DownloadPreference.AudioMp3),
+            };
+            Videos = new ObservableCollection<VideoInfo>();
             YTDownloader = new Downloader();
             DownloadCommand = new RelayCommand(Download);
             ClearAllCommand = new RelayCommand(ClearAll);
-        }       
+            EventAggregatorUtility.EventAggregator.GetEvent<UpdateUrlEvent>().Subscribe(UpdateUrl);
+        }
+
+        private async void UpdateUrl(string url)
+        {
+            VideoInfoFetcher infoFetcher = new VideoInfoFetcher();
+            VideoInfo info = await infoFetcher.GetVideoInfoAsync(url);
+            Videos.Add(info);
+        }
 
         private async void Download(object parameter)
         {
             StatusMessage = "Downloading...";
             try
             {
-                //await YTDownloader.Download(Url);
+                foreach (var video in Videos)
+                {
+                    await YTDownloader.Download(video, SelectedOption);
+                }
             }
             catch (ArgumentNullException e)
             {
@@ -80,7 +110,8 @@ namespace YTubeD.MVVM.ViewModels.Components
             }
             StatusMessage = "Download Completed!";
         }
-        private void ClearAll(object parameter)
+
+        private async void ClearAll(object parameter)
         {
             Videos.Clear();
         }

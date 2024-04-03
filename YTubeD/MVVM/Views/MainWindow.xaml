@@ -56,7 +56,7 @@
         <!--Grid.Row 1-->
         <ContentControl Grid.Row="1"
                         Margin="10"
-                        Content="{Binding CurrentView}"/>
+                        Content="{Binding VideoDownloaderVM}"/>
 
     </Grid>
 </Window>

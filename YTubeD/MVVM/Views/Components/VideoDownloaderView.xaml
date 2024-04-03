@@ -5,11 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:YTubeD.MVVM.Views.Components"
-             xmlns:viewModels="clr-namespace:YTubeD.MVVM.ViewModels"
              xmlns:componentViewModels="clr-namespace:YTubeD.MVVM.ViewModels.Components"
-             xmlns:dialogViewModels="clr-namespace:YTubeD.MVVM.ViewModels.Dialogs"
+             xmlns:converters="clr-namespace:YTubeD.Converters"
              d:DesignHeight="450" d:DesignWidth="500"
              mc:Ignorable="d">
+    <UserControl.DataContext>
+        <componentViewModels:VideoDownloaderViewModel/>
+    </UserControl.DataContext>
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -21,9 +23,6 @@
     </UserControl.Resources>
 
     <Grid>
-        <Grid.DataContext>
-            <componentViewModels:VideoDownloaderViewModel/>
-        </Grid.DataContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -31,7 +30,12 @@
         
         <!--Row 1-->
         <ListView Grid.Row="0"
-                  Margin="0 10">
+                  Margin="0 10"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  HorizontalContentAlignment="Stretch"
+                  SelectionMode="Single"
+                  ItemsSource="{Binding Videos}"
+                  SelectedItem="{Binding SelectedVideo}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -49,15 +53,16 @@
                         <!--Info-->
                         <StackPanel Grid.Column="1"
                                     Orientation="Vertical">
-                            <TextBlock Text="{Binding }"/>
+                            <TextBlock Text="{Binding Title}"/>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding}"/>
-                                <TextBlock Text="{Binding}"/>
+                                <TextBlock Text="{Binding Author}"/>
+                                <TextBlock Text="{Binding Duration}"/>
                             </StackPanel>
                         </StackPanel>
                         
                         <!--RemoveButton-->
-                        <Button Padding="0"
+                        <Button Grid.Column="2"
+                                Padding="0"
                                 Style="{DynamicResource MaterialDesignFlatButton}">
                             <materialDesign:PackIcon Height="30" Width="30" Kind="Close"/>
                         </Button>
@@ -74,16 +79,30 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
+            
+            <!--Download Options-->
             <ComboBox Style="{StaticResource SmallComboBoxStyle}"
-                    Margin="5"/>
+                      ItemsSource="{Binding DownloadOptions}"
+                      SelectedItem="{Binding SelectedOption}"
+                      Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Converter={x:Static converters:DownloadOptionToNameConverter.Instance}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <!--Clear button-->
             <Button Grid.Column="2"
                     Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"
                     Content="Clear"
-                    Margin="5"/>
+                    Margin="5"
+                    Command="{Binding ClearAllCommand}"/>
+            <!--Download button-->
             <Button Grid.Column="3"
                     Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"
                     Content="Download"
-                    Margin="5"/>
+                    Margin="5"
+                    Command="{Binding DownloadCommand}"/>
         </Grid>
     </Grid>
 </UserControl>

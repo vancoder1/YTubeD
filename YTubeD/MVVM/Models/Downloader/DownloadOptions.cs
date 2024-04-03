@@ -23,7 +23,7 @@ namespace YTubeD.MVVM.Models.Downloader
         AudioMp3,
     }
 
-    internal static class DownloadPreferenceResolver
+    internal static class DownloadPreferenceName
     {
         public static string GetName(DownloadPreference preference) =>
             preference switch
@@ -46,15 +46,14 @@ namespace YTubeD.MVVM.Models.Downloader
         public Container Container { get; set; }
         public IReadOnlyList<IStreamInfo> StreamInfos { get; set; }
         public bool IsAudioOnly { get; set; }
+        public DownloadPreference Preference;
 
-        public DownloadOption(Container container, List<IStreamInfo> streamInfos, bool isAudioOnly)
+        public DownloadOption(DownloadPreference preference)
         {
-            Container = container;
-            StreamInfos = streamInfos;
-            IsAudioOnly = isAudioOnly;
+            Preference = preference;
         }
 
-        public void GetBestOption(DownloadPreference preference, StreamManifest streamManifest)
+        public void GetBestOption(StreamManifest streamManifest)
         {
             var videoStreamInfosMP4 = streamManifest.GetVideoOnlyStreams()
                 .Where(s => s.Container == Container.Mp4)
@@ -64,7 +63,7 @@ namespace YTubeD.MVVM.Models.Downloader
             var audioStreamInfoMP4 = streamManifest.GetAudioOnlyStreams()
                 .Where(s => s.Container == Container.Mp4)
                 .GetWithHighestBitrate();
-            switch (preference)
+            switch (Preference)
             {
                 case DownloadPreference.UpTo144p:
                     Container = Container.Mp4;
@@ -167,7 +166,7 @@ namespace YTubeD.MVVM.Models.Downloader
                     IsAudioOnly = true;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(preference));
+                    throw new ArgumentOutOfRangeException(nameof(Preference));
             }
         }
     }

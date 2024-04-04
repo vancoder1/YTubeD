@@ -73,9 +73,6 @@ namespace YTubeD.MVVM.ViewModels
             {
                 if (await YTDownloader.IsUrlValid(Url))
                 {
-                    //VideoInfoFetcher infoFetcher = new VideoInfoFetcher();
-                    //VideoInfo info = await infoFetcher.GetVideoInfoAsync(Url);
-                    //VideoDownloaderVM.Videos.Add(info);
                     UpdateUrl(Url);
                 }
             }

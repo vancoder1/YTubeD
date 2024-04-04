@@ -64,6 +64,16 @@ namespace YTubeD.MVVM.ViewModels.Components
                 OnPropertyChanged();
             }
         }
+        private double _fetchingProgress = 0;
+        public double FetchingProgress
+        {
+            get { return _fetchingProgress; }
+            set
+            {
+                _fetchingProgress = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand DownloadCommand { get; }
         public ICommand ClearAllCommand { get; }
@@ -123,7 +133,10 @@ namespace YTubeD.MVVM.ViewModels.Components
 
         private void RemoveElement(object parameter)
         {
-
+            if (parameter != null && parameter is VideoInfo videoInfo)
+            {
+                Videos.Remove(videoInfo);
+            }
         }
     }
 }

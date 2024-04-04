@@ -66,7 +66,7 @@ namespace YTubeD.MVVM.Model
             string outputFilePath = Path.Combine(Settings.SavingPath, $"{sanitizedTitle}.{quality.Container.Name}");
             await Client.Videos.DownloadAsync(quality.StreamInfos, new ConversionRequestBuilder(outputFilePath)
                 .SetContainer(quality.Container)
-                .SetPreset(ConversionPreset.Medium)
+                .SetPreset(ConversionPreset.UltraFast)
                 .Build());
         }
     }

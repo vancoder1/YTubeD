@@ -65,7 +65,8 @@
                         <Button Grid.Column="2"
                                 Padding="0"
                                 Style="{DynamicResource MaterialDesignFlatButton}"
-                                Command="{Binding DataContext.RemoveElementCommand}">
+                                Command="{Binding DataContext.RemoveElementCommand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                CommandParameter="{Binding}">
                             <materialDesign:PackIcon Height="30" Width="30" Kind="Close"/>
                         </Button>
                     </Grid>

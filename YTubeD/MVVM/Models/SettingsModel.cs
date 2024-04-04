@@ -9,24 +9,22 @@ namespace YTubeD.MVVM.Models
 {
     class SettingsModel : ObservableObject
     {
-        private string _savingPath = string.Empty;
-        public string SavingPath 
-        {
-            get => _savingPath;
-            set
-            {
-                _savingPath = value;
-                OnPropertyChanged();
-            }
-        }
+        public string SavingPath { get; set; } = string.Empty;
 
         public void LoadSettings()
         {
             SavingPath = Properties.Settings.Default.SavingPath;
+            if (SavingPath == null ||
+                SavingPath == string.Empty ||
+                SavingPath == "")
+            {
+                SavingPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads\\";
+            }
         }
         public void SaveSettings()
         {
-            
+            Properties.Settings.Default.SavingPath = SavingPath;
+            Properties.Settings.Default.Save();
         }
     }
 }

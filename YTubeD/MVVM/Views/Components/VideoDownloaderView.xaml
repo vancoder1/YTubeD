@@ -29,7 +29,8 @@
         </Grid.RowDefinitions>
         
         <!--Row 1-->
-        <ListView Grid.Row="0"
+        <ListView x:Name="VideosListView" 
+                  Grid.Row="0"
                   Margin="0 10"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   HorizontalContentAlignment="Stretch"
@@ -54,16 +55,17 @@
                         <StackPanel Grid.Column="1"
                                     Orientation="Vertical">
                             <TextBlock Text="{Binding Title}"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Author}"/>
-                                <TextBlock Text="{Binding Duration}"/>
-                            </StackPanel>
+                            <TextBlock Text="{Binding Author}"
+                                       Style="{StaticResource SmallTextBlockStyle}"/>
+                            <TextBlock Text="{Binding Duration}"
+                                       Style="{StaticResource SmallTextBlockStyle}"/>
                         </StackPanel>
                         
                         <!--RemoveButton-->
                         <Button Grid.Column="2"
                                 Padding="0"
-                                Style="{DynamicResource MaterialDesignFlatButton}">
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                Command="{Binding ElementName=VideosListView, Path=RemoveElementCommand}">
                             <materialDesign:PackIcon Height="30" Width="30" Kind="Close"/>
                         </Button>
                     </Grid>

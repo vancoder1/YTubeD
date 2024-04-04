@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:YTubeD.MVVM.Views.Dialogs" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:YTubeD.MVVM.Views.Dialogs" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dialogs="clr-namespace:YTubeD.MVVM.ViewModels.Dialogs"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
@@ -11,6 +13,9 @@
         Height="450" Width="350"
         Icon="pack://application:,,,/Images/Icons/favicon.ico"
         Style="{StaticResource MaterialDesignWindowStyle}">
+    <Window.DataContext>
+        <dialogs:SettingsViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -39,17 +44,20 @@
                 </Grid.ColumnDefinitions>
                 
                 <TextBlock Grid.Column="0"
-                       Text="Save to path:"
                        Style="{StaticResource SmallTextBlockStyle}"
+                       Text="Save to path:"
                        VerticalAlignment="Center"
                        DockPanel.Dock="Left"
                        Margin="10 5"/>
                 <TextBox Grid.Column="1"
-                         Style="{StaticResource SmallTextBoxStyle}"/>
+                         Style="{StaticResource SmallTextBoxStyle}"
+                         Text="{Binding SavingPath}"
+                         IsReadOnly="True"/>
                 <Button Grid.Column="2"
+                        Style="{DynamicResource MaterialDesignFlatButton}"
+                        Command="{Binding ChooseDirectoryCommand}"
                         Padding="0"
-                        DockPanel.Dock="Left"
-                        Style="{DynamicResource MaterialDesignFlatButton}">
+                        DockPanel.Dock="Left">
                     <materialDesign:PackIcon Height="20" Width="20" Kind="Folder"/>
                 </Button>
             </Grid>
@@ -63,7 +71,9 @@
                 FontWeight="Light"
                 HorizontalAlignment="Center"
                 Margin="20"
-                Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"/>
+                Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"
+                Command="{Binding SaveAndCloseCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 
     </Grid>
 </Window>

@@ -65,6 +65,7 @@ namespace YTubeD.MVVM.ViewModels.Components
 
         public ICommand DownloadCommand { get; }
         public ICommand ClearAllCommand { get; }
+        public ICommand RemoveElementCommand { get; }
 
         public VideoDownloaderViewModel()
         {
@@ -80,10 +81,12 @@ namespace YTubeD.MVVM.ViewModels.Components
                 new DownloadOption(DownloadPreference.UpTo2160p),
                 new DownloadOption(DownloadPreference.AudioMp3),
             };
+            SelectedOption = DownloadOptions.Where(p => p.Preference == DownloadPreference.UpTo1080p).First();
             Videos = new ObservableCollection<VideoInfo>();
             YTDownloader = new Downloader();
             DownloadCommand = new RelayCommand(Download);
             ClearAllCommand = new RelayCommand(ClearAll);
+            RemoveElementCommand = new RelayCommand(RemoveElement);
             EventAggregatorUtility.EventAggregator.GetEvent<UpdateUrlEvent>().Subscribe(UpdateUrl);
         }
 
@@ -111,9 +114,14 @@ namespace YTubeD.MVVM.ViewModels.Components
             StatusMessage = "Download Completed!";
         }
 
-        private async void ClearAll(object parameter)
+        private void ClearAll(object parameter)
         {
             Videos.Clear();
+        }
+
+        private void RemoveElement(object parameter)
+        {
+
         }
     }
 }

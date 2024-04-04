@@ -36,8 +36,8 @@ namespace YTubeD.MVVM.Models.Downloader
                 OnPropertyChanged();
             }
         }
-        private string _duration = string.Empty;
-        public string Duration
+        private string? _duration = string.Empty;
+        public string? Duration
         {
             get => _duration;
             set
@@ -91,7 +91,7 @@ namespace YTubeD.MVVM.Models.Downloader
             catch (Exception ex)
             {
                 Console.WriteLine($"Error fetching video info: {ex.Message}");
-                return null;
+                return null!;
             }
         }
     }

@@ -65,7 +65,7 @@
                         <Button Grid.Column="2"
                                 Padding="0"
                                 Style="{DynamicResource MaterialDesignFlatButton}"
-                                Command="{Binding ElementName=VideosListView, Path=RemoveElementCommand}">
+                                Command="{Binding DataContext.RemoveElementCommand}">
                             <materialDesign:PackIcon Height="30" Width="30" Kind="Close"/>
                         </Button>
                     </Grid>

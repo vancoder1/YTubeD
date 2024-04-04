@@ -51,6 +51,7 @@ namespace YTubeD.MVVM.Models.Downloader
         public DownloadOption(DownloadPreference preference)
         {
             Preference = preference;
+            StreamInfos = new List<IStreamInfo>();
         }
 
         public void GetBestOption(StreamManifest streamManifest)

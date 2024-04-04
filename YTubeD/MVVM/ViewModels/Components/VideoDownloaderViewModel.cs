@@ -12,6 +12,8 @@ using YTubeD.Core;
 using YTubeD.Utils;
 using YTubeD.MVVM.Model;
 using YTubeD.MVVM.Models.Downloader;
+using YTubeD.Properties;
+using YTubeD.MVVM.Models;
 
 namespace YTubeD.MVVM.ViewModels.Components
 {
@@ -69,6 +71,8 @@ namespace YTubeD.MVVM.ViewModels.Components
 
         public VideoDownloaderViewModel()
         {
+            YTDownloader = new Downloader();
+            Videos = new ObservableCollection<VideoInfo>();
             DownloadOptions = new ObservableCollection<DownloadOption>()
             {
                 new DownloadOption(DownloadPreference.UpTo144p),
@@ -82,8 +86,6 @@ namespace YTubeD.MVVM.ViewModels.Components
                 new DownloadOption(DownloadPreference.AudioMp3),
             };
             SelectedOption = DownloadOptions.Where(p => p.Preference == DownloadPreference.UpTo1080p).First();
-            Videos = new ObservableCollection<VideoInfo>();
-            YTDownloader = new Downloader();
             DownloadCommand = new RelayCommand(Download);
             ClearAllCommand = new RelayCommand(ClearAll);
             RemoveElementCommand = new RelayCommand(RemoveElement);

@@ -158,7 +158,7 @@ namespace YTubeD.MVVM.Models.Downloader
                 case DownloadPreference.AudioMp3:
                     Container = Container.Mp3;
                     var audioStreamInfoMP3 = streamManifest.GetAudioOnlyStreams()
-                        .Where(s => s.Container == Container.Mp3)
+                        .Where(s => s.Container == Container.Mp4)
                         .GetWithHighestBitrate();
                     StreamInfos = new List<IStreamInfo>()
                     {

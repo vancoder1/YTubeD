@@ -63,7 +63,7 @@ namespace YTubeD.MVVM.Model
             var stream = await Client.Videos.Streams.GetManifestAsync(videoInfo.Url);
             quality.GetBestOption(stream);
             string sanitizedTitle = string.Join("_", videoInfo.Title.Split(Path.GetInvalidFileNameChars()));
-            string outputFilePath = Path.Combine(Settings.SavingPath, $"{sanitizedTitle}.{quality.Container.Name}");        
+            string outputFilePath = Path.Combine(Settings.SavingPath, $"{sanitizedTitle}.{quality.Container.Name}");
             await Client.Videos.DownloadAsync(quality.StreamInfos, new ConversionRequestBuilder(outputFilePath)
                 .SetContainer(quality.Container)
                 .SetPreset(ConversionPreset.Medium)

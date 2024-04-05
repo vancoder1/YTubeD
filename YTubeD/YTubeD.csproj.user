@@ -7,22 +7,36 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MVVM\Views\Components\VideoDownloaderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\Dialogs\SettingsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Fonts\CustomFonts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\Components\VideoDownloaderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\Dialogs\SettingsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\ButtonStyle.xaml">
+    <Page Update="Styles\MaterialDesignWindowStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\ControlStyle.xaml">
+    <Page Update="Styles\SmallComboBoxStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\ComboBoxStyle.xaml">
+    <Page Update="Styles\SmallTextBlockStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\TextBoxStyle.xaml">
+    <Page Update="Styles\SmallTextBoxStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="SmallTextBlockStyle" 
+           TargetType="{x:Type TextBlock}" 
+           BasedOn="{StaticResource MaterialDesignBodySmallTextBlock}">
+        <Style.Setters>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Light"/>
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>

@@ -12,149 +12,70 @@ using YTubeD.MVVM.Model;
 using System.Windows;
 using YoutubeExplode.Videos.Streams;
 using System.Formats.Asn1;
+using YTubeD.MVVM.Views.Dialogs;
+using YTubeD.MVVM.ViewModels.Components;
+using YTubeD.MVVM.Models.Downloader;
+using YTubeD.Utils;
 
 namespace YTubeD.MVVM.ViewModels
 {
     class MainViewModel : ObservableObject
     {
-        // Properties and fields
-        Downloader YTDownloader { get; set; }       
-        private bool _isUrlValid;
-        private ObservableCollection<IStreamInfo> _qualities;
-        private IStreamInfo _selectedQuality;
-        private string _statusMessage;
+        public VideoDownloaderViewModel VideoDownloaderVM { get; set; }
 
-        public bool IsUrlValid
+        private Downloader YTDownloader { get; set; }
+        private object _currentView;
+        public object CurrentView
         {
-            get => _isUrlValid;
+            get => _currentView;
             set
             {
-                if (_isUrlValid != value)
-                {
-                    _isUrlValid = value;
-                    OnPropertyChanged();
-                }
+                _currentView = value;
+                OnPropertyChanged();
             }
         }
+        private string _url;
         public string Url
         {
-            get => YTDownloader.Url;
+            get => _url;
             set
             {
-                YTDownloader.Url = value;
-                OnPropertyChanged();
-                ValidateUrlCommand.Execute(null);
-            }
-        }
-        public string SavingPath
-        {
-            get => YTDownloader.OutputDirectory;
-            set
-            {
-                YTDownloader.OutputDirectory = value;
-                OnPropertyChanged();
-            }
-        }
-        public ObservableCollection<IStreamInfo> Qualities 
-        {
-            get => _qualities;
-            set
-            {
-                _qualities = value;
-                OnPropertyChanged();
-            }
-        }
-        public IStreamInfo SelectedQuality
-        {
-            get => _selectedQuality;
-            set
-            {
-                _selectedQuality = value;
-                OnPropertyChanged();
-            }
-        }
-        public string StatusMessage
-        {
-            get => _statusMessage;
-            set
-            {
-                _statusMessage = value;
+                _url = value;
                 OnPropertyChanged();
             }
         }
 
-        // Commands
-        public ICommand ValidateUrlCommand { get; }
-        public ICommand ChooseDirectoryCommand { get; }
-        public ICommand DownloadCommand { get; }
+        public ICommand OpenSettingsCommand { get; }
+        public ICommand SubmitUrlCommand { get; }
 
-        // Methods
         public MainViewModel()
-        {
+        {           
             YTDownloader = new Downloader();
-            Qualities = new ObservableCollection<IStreamInfo>();
-            ValidateUrlCommand = new RelayCommand(ValidateUrl);
-            ChooseDirectoryCommand = new RelayCommand(ChooseDirectory);
-            DownloadCommand = new RelayCommand(Download);
+            OpenSettingsCommand = new RelayCommand(OpenSettings);
+            SubmitUrlCommand = new RelayCommand(SubmitUrl);
+            VideoDownloaderVM = new VideoDownloaderViewModel();
         }
 
-        private async void ValidateUrl(object parameter)
-        {          
-            IsUrlValid = await IsYoutubeUrlValid();
-            if (IsUrlValid)
-            {
-                StatusMessage = "Fetching Qualities...";
-                await FetchQualities();
-                StatusMessage = "";
-            }
-            else
-            {
-                StatusMessage = "Invalid URL";
-            }
-        }
-
-        private async Task<bool> IsYoutubeUrlValid()
+        public void UpdateUrl(string url)
         {
-            return await YTDownloader.IsUrlValid();
+            EventAggregatorUtility.EventAggregator.GetEvent<UpdateUrlEvent>().Publish(url);
         }
 
-        private void ChooseDirectory(object parameter)
+        private void OpenSettings(object parameter)
         {
-            using (var dialog = new FolderBrowserDialog())
-            {
-                DialogResult result = dialog.ShowDialog();
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.ShowDialog();
+        }
 
-                if (result == DialogResult.OK)
+        private async void SubmitUrl(object parameter)
+        {
+            if (Url != null)
+            {
+                if (await YTDownloader.IsUrlValid(Url))
                 {
-                    SavingPath = dialog.SelectedPath;
+                    UpdateUrl(Url);
                 }
             }
-        }
-
-        private async Task FetchQualities()
-        {
-            var qualities = await YTDownloader.FetchInfo();
-
-            Qualities.Clear();
-            foreach (var quality in qualities)
-            {
-                Qualities.Add(quality);
-            }
-            SelectedQuality = Qualities.First();
-        }
-
-        private async void Download(object parameter)
-        {
-            StatusMessage = "Downloading...";
-            try
-            {
-                await YTDownloader.Download(SelectedQuality);
-            }
-            catch (ArgumentNullException e)
-            {
-                StatusMessage = e.Message;
-            }
-            StatusMessage = "Download Completed!";
         }
     }
 }

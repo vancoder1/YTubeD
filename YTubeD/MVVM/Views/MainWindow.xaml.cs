@@ -10,7 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using YTubeD.MVVM.ViewModels;
 
-namespace YTubeD
+namespace YTubeD.MVVM.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -20,7 +20,7 @@ namespace YTubeD
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            this.DataContext = new MainViewModel();
         }
     }
 }

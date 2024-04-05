@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Markup;
 using YTubeD.Core;
 
 namespace YTubeD.Utils
@@ -17,29 +16,12 @@ namespace YTubeD.Utils
             }
         }
         private bool _isIndeterminate;
-        public bool IsIndeterminate 
-        { 
+        public bool IsIndeterminate
+        {
             get => _isIndeterminate;
             set
             {
                 _isIndeterminate = value;
-                OnPropertyChanged();
-            }
-        }
-        private double _progress;
-        public double Progress
-        {
-            get => _progress;
-            set
-            {
-                if (value >= 0 && value <= 100)
-                {
-                    _progress = value;
-                }
-                else
-                {
-                    _progress = 0;
-                }
                 OnPropertyChanged();
             }
         }
@@ -48,13 +30,12 @@ namespace YTubeD.Utils
         {
             Visibility = Visibility.Hidden;
             IsIndeterminate = false;
-            Progress = 0.0;
         }
-        public ProgressBarService(Visibility visibility, bool isIndeterminate, double progress)
+
+        public ProgressBarService(Visibility visibility, bool isIndeterminate)
         {
             Visibility = visibility;
             IsIndeterminate = isIndeterminate;
-            Progress = progress;
         }
     }
 }

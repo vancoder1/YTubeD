@@ -11,7 +11,6 @@
           "MaterialDesignColors": "3.0.0",
           "MaterialDesignThemes": "5.0.0",
           "MaterialDesignThemes.MahApps": "1.0.0",
-          "Newtonsoft.Json": "13.0.3",
           "Ookii.Dialogs.Wpf": "5.0.1",
           "Prism.Core": "8.1.97",
           "System.Net.Http": "4.3.4",
@@ -104,14 +103,6 @@
           "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
             "assemblyVersion": "1.1.0.0",
             "fileVersion": "1.1.39.4716"
-          }
-        }
-      },
-      "Newtonsoft.Json/13.0.3": {
-        "runtime": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.3.27908"
           }
         }
       },
@@ -623,13 +614,6 @@
       "sha512": "sha512-8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
       "path": "microsoft.xaml.behaviors.wpf/1.1.39",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
-    },
-    "Newtonsoft.Json/13.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
-      "path": "newtonsoft.json/13.0.3",
-      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
     },
     "Ookii.Dialogs.Wpf/5.0.1": {
       "type": "package",

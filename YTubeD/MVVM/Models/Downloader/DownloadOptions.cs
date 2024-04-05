@@ -1,12 +1,4 @@
-﻿using AngleSharp.Media;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Automation.Peers;
-using YoutubeExplode.Videos;
-using YoutubeExplode.Videos.Streams;
+﻿using YoutubeExplode.Videos.Streams;
 
 namespace YTubeD.MVVM.Models.Downloader
 {
@@ -38,14 +30,13 @@ namespace YTubeD.MVVM.Models.Downloader
                 DownloadPreference.UpTo2160p => "Up to 2160p",
                 DownloadPreference.AudioMp3 => "Audio MP3",
                 _ => throw new ArgumentOutOfRangeException(nameof(preference))
-            };         
+            };
     }
 
     internal class DownloadOption
     {
         public Container Container { get; set; }
         public IReadOnlyList<IStreamInfo> StreamInfos { get; set; }
-        public bool IsAudioOnly { get; set; }
         public DownloadPreference Preference;
 
         public DownloadOption(DownloadPreference preference)
@@ -61,7 +52,7 @@ namespace YTubeD.MVVM.Models.Downloader
                 .GroupBy(s => s.VideoQuality)
                 .Select(g => g.First())
                 .OrderByDescending(s => s.VideoQuality);
-            var audioStreamInfoMP4 = streamManifest.GetAudioOnlyStreams()
+            var audioStreamInfo = streamManifest.GetAudioOnlyStreams()
                 .Where(s => s.Container == Container.Mp4)
                 .GetWithHighestBitrate();
             switch (Preference)
@@ -73,9 +64,8 @@ namespace YTubeD.MVVM.Models.Downloader
                         videoStreamInfosMP4
                         .Where(o => o.VideoQuality.MaxHeight <= 144)
                         .First(),
-                        audioStreamInfoMP4
+                        audioStreamInfo
                     };
-                    IsAudioOnly = false;
                     break;
                 case DownloadPreference.UpTo240p:
                     Container = Container.Mp4;
@@ -84,9 +74,8 @@ namespace YTubeD.MVVM.Models.Downloader
                         videoStreamInfosMP4
                         .Where(o => o.VideoQuality.MaxHeight <= 240)
                         .First(),
-                        audioStreamInfoMP4
+                        audioStreamInfo
                     };
-                    IsAudioOnly = false;
                     break;
                 case DownloadPreference.UpTo360p:
                     Container = Container.Mp4;
@@ -95,9 +84,8 @@ namespace YTubeD.MVVM.Models.Downloader
                         videoStreamInfosMP4
                         .Where(o => o.VideoQuality.MaxHeight <= 360)
                         .First(),
-                        audioStreamInfoMP4
+                        audioStreamInfo
                     };
-                    IsAudioOnly = false;
                     break;
                 case DownloadPreference.UpTo480p:
                     Container = Container.Mp4;
@@ -106,9 +94,8 @@ namespace YTubeD.MVVM.Models.Downloader
                         videoStreamInfosMP4
                         .Where(o => o.VideoQuality.MaxHeight <= 480)
                         .First(),
-                        audioStreamInfoMP4
+                        audioStreamInfo
                     };
-                    IsAudioOnly = false;
                     break;
                 case DownloadPreference.UpTo720p:
                     Container = Container.Mp4;
@@ -117,9 +104,8 @@ namespace YTubeD.MVVM.Models.Downloader
                         videoStreamInfosMP4
                         .Where(o => o.VideoQuality.MaxHeight <= 720)
                         .First(),
-                        audioStreamInfoMP4
+                        audioStreamInfo
                     };
-                    IsAudioOnly = false;
                     break;
                 case DownloadPreference.UpTo1080p:
                     Container = Container.Mp4;
@@ -128,9 +114,8 @@ namespace YTubeD.MVVM.Models.Downloader
                         videoStreamInfosMP4
                         .Where(o => o.VideoQuality.MaxHeight <= 1080)
                         .First(),
-                        audioStreamInfoMP4
+                        audioStreamInfo
                     };
-                    IsAudioOnly = false;
                     break;
                 case DownloadPreference.UpTo1440p:
                     Container = Container.Mp4;
@@ -139,9 +124,8 @@ namespace YTubeD.MVVM.Models.Downloader
                         videoStreamInfosMP4
                         .Where(o => o.VideoQuality.MaxHeight <= 1440)
                         .First(),
-                        audioStreamInfoMP4
+                        audioStreamInfo
                     };
-                    IsAudioOnly = false;
                     break;
                 case DownloadPreference.UpTo2160p:
                     Container = Container.Mp4;
@@ -150,21 +134,15 @@ namespace YTubeD.MVVM.Models.Downloader
                         videoStreamInfosMP4
                         .Where(o => o.VideoQuality.MaxHeight <= 2160)
                         .First(),
-                        audioStreamInfoMP4
+                        audioStreamInfo
                     };
-                    IsAudioOnly = false;
                     break;
-
                 case DownloadPreference.AudioMp3:
                     Container = Container.Mp3;
-                    var audioStreamInfoMP3 = streamManifest.GetAudioOnlyStreams()
-                        .Where(s => s.Container == Container.Mp4)
-                        .GetWithHighestBitrate();
                     StreamInfos = new List<IStreamInfo>()
                     {
-                        audioStreamInfoMP3
+                        audioStreamInfo
                     };
-                    IsAudioOnly = true;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(Preference));

@@ -15,9 +15,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Fonts\CustomFonts.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MVVM\Views\Components\VideoDownloaderView.xaml">
       <SubType>Designer</SubType>
     </Page>

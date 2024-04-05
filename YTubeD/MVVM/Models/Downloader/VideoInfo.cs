@@ -1,4 +1,5 @@
 ﻿using YoutubeExplode;
+using YoutubeExplode.Exceptions;
 using YoutubeExplode.Videos;
 using YTubeD.Core;
 
@@ -46,16 +47,6 @@ namespace YTubeD.MVVM.Models.Downloader
                 OnPropertyChanged();
             }
         }
-        private string _description = string.Empty;
-        public string Description
-        {
-            get => _description;
-            set
-            {
-                _description = value;
-                OnPropertyChanged();
-            }
-        }
     }
 
     internal class VideoInfoFetcher
@@ -77,21 +68,39 @@ namespace YTubeD.MVVM.Models.Downloader
             {
                 Video video = await _youtubeClient.Videos.GetAsync(Url);
 
-                VideoInfo videoInfo = new VideoInfo
+                VideoInfo videoInfo = new()
                 {
                     Url = Url,
                     Title = video.Title,
                     Author = video.Author.ToString(),
                     Duration = video.Duration.ToString(),
-                    Description = video.Description.ToString(),
                 };
 
                 return videoInfo;
             }
+            catch (Exception e)
+            {
+                await Console.Out.WriteLineAsync(e.Message);
+                return null!;
+            }
+        }
+
+        public async Task<bool> IsUrlValid(string Url)
+        {
+            try
+            {
+                Video video = await _youtubeClient.Videos.GetAsync(Url);
+                return video != null;
+            }
+            catch (VideoUnavailableException)
+            {
+                return false;
+            }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error fetching video info: {ex.Message}");
-                return null!;
+
+                await Console.Out.WriteLineAsync($"Error occurred: {ex.Message}");
+                return false;
             }
         }
     }

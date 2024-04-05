@@ -53,12 +53,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        
-                        <!--Thumbnail-->
-                        <Image Grid.Column="0"
-                               Width="50"
-                               Height="50"/>
-                        
+
                         <!--Info-->
                         <StackPanel Grid.Column="1"
                                     Orientation="Vertical">

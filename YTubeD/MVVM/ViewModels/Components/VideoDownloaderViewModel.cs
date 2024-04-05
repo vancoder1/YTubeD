@@ -1,32 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
-using System.Xml.Linq;
-using YoutubeExplode.Videos.Streams;
 using YTubeD.Core;
-using YTubeD.Utils;
 using YTubeD.MVVM.Model;
 using YTubeD.MVVM.Models.Downloader;
-using YTubeD.Properties;
-using YTubeD.MVVM.Models;
-using System.Windows;
+using YTubeD.Utils;
 
 namespace YTubeD.MVVM.ViewModels.Components
 {
     class VideoDownloaderViewModel : ObservableObject
     {
         public Downloader YTDownloader { get; set; }
+        private VideoInfoFetcher Fetcher { get; set; }
         public ProgressBarService FetchingProgressBar { get; set; }
         public ProgressBarService DownloadingProgressBar { get; set; }
-        public ObservableCollection<VideoInfo> Videos
-        {
-            get; set;
-        }
+
+        public ObservableCollection<VideoInfo> Videos { get; set; }
         private VideoInfo _selectedVideo = new VideoInfo();
         public VideoInfo SelectedVideo
         {
@@ -37,33 +26,14 @@ namespace YTubeD.MVVM.ViewModels.Components
                 OnPropertyChanged();
             }
         }
-        private ObservableCollection<DownloadOption> _downloadOptions;
-        public ObservableCollection<DownloadOption> DownloadOptions
-        {
-            get => _downloadOptions;
-            set
-            {
-                _downloadOptions = value;
-                OnPropertyChanged();
-            }
-        }
-        private DownloadOption _selectedOption;
+        public ObservableCollection<DownloadOption> DownloadOptions { get; set; }
+        private DownloadOption _selectedOption = null!;
         public DownloadOption SelectedOption
         {
             get => _selectedOption;
             set
             {
                 _selectedOption = value;
-                OnPropertyChanged();
-            }
-        }
-        private string _statusMessage = string.Empty;
-        public string StatusMessage
-        {
-            get => _statusMessage;
-            set
-            {
-                _statusMessage = value;
                 OnPropertyChanged();
             }
         }
@@ -75,22 +45,23 @@ namespace YTubeD.MVVM.ViewModels.Components
         public VideoDownloaderViewModel()
         {
             YTDownloader = new Downloader();
-            FetchingProgressBar = new ProgressBarService();
-            DownloadingProgressBar = new ProgressBarService();
+            Fetcher = new VideoInfoFetcher();
+            FetchingProgressBar = new ProgressBarService(Visibility.Hidden, true);
+            DownloadingProgressBar = new ProgressBarService(Visibility.Hidden, true);
             Videos = new ObservableCollection<VideoInfo>();
-            DownloadOptions = new ObservableCollection<DownloadOption>()
+            DownloadOptions = new ObservableCollection<DownloadOption>
             {
-                new DownloadOption(DownloadPreference.UpTo144p),
-                new DownloadOption(DownloadPreference.UpTo240p),
-                new DownloadOption(DownloadPreference.UpTo360p),
-                new DownloadOption(DownloadPreference.UpTo480p),
-                new DownloadOption(DownloadPreference.UpTo720p),
-                new DownloadOption(DownloadPreference.UpTo1080p),
-                new DownloadOption(DownloadPreference.UpTo1440p),
-                new DownloadOption(DownloadPreference.UpTo2160p),
-                new DownloadOption(DownloadPreference.AudioMp3),
+                new(DownloadPreference.UpTo144p),
+                new(DownloadPreference.UpTo240p),
+                new(DownloadPreference.UpTo360p),
+                new(DownloadPreference.UpTo480p),
+                new(DownloadPreference.UpTo720p),
+                new(DownloadPreference.UpTo1080p),
+                new(DownloadPreference.UpTo1440p),
+                new(DownloadPreference.UpTo2160p),
+                new(DownloadPreference.AudioMp3),
             };
-            SelectedOption = DownloadOptions.Where(p => p.Preference == DownloadPreference.UpTo1080p).First();
+            SelectedOption = DownloadOptions[5];
             DownloadCommand = new RelayCommand(Download);
             ClearAllCommand = new RelayCommand(ClearAll);
             RemoveElementCommand = new RelayCommand(RemoveElement);
@@ -100,18 +71,24 @@ namespace YTubeD.MVVM.ViewModels.Components
         private async void UpdateUrl(string url)
         {
             FetchingProgressBar.Visibility = Visibility.Visible;
-            FetchingProgressBar.IsIndeterminate = true;
-            VideoInfoFetcher infoFetcher = new VideoInfoFetcher();
-            VideoInfo info = await infoFetcher.GetVideoInfoAsync(url);
-            Videos.Add(info);
-            FetchingProgressBar.IsIndeterminate = false;
+            if (url != null)
+            {
+                if (await Fetcher.IsUrlValid(url))
+                {
+                    VideoInfoFetcher infoFetcher = new();
+                    VideoInfo info = await infoFetcher.GetVideoInfoAsync(url);
+                    Application.Current.Dispatcher.Invoke((Action)delegate
+                    {
+                        Videos.Add(info);
+                    });
+                }
+            }
             FetchingProgressBar.Visibility = Visibility.Hidden;
         }
 
         private async void Download(object parameter)
         {
             DownloadingProgressBar.Visibility = Visibility.Visible;
-            DownloadingProgressBar.IsIndeterminate = true;
             try
             {
                 foreach (var video in Videos)
@@ -121,10 +98,8 @@ namespace YTubeD.MVVM.ViewModels.Components
             }
             catch (ArgumentNullException e)
             {
-                StatusMessage = e.Message;
+                await Console.Out.WriteLineAsync(e.Message);
             }
-            StatusMessage = "Download Completed!";
-            DownloadingProgressBar.IsIndeterminate = false;
             DownloadingProgressBar.Visibility = Visibility.Hidden;
         }
 

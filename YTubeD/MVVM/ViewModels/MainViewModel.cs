@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Windows.Forms;
+﻿using System.Windows.Input;
 using YTubeD.Core;
-using YTubeD.MVVM.Model;
-using System.Windows;
-using YoutubeExplode.Videos.Streams;
-using System.Formats.Asn1;
-using YTubeD.MVVM.Views.Dialogs;
 using YTubeD.MVVM.ViewModels.Components;
-using YTubeD.MVVM.Models.Downloader;
+using YTubeD.MVVM.Views.Dialogs;
 using YTubeD.Utils;
 
 namespace YTubeD.MVVM.ViewModels
@@ -23,8 +10,7 @@ namespace YTubeD.MVVM.ViewModels
     {
         public VideoDownloaderViewModel VideoDownloaderVM { get; set; }
 
-        private Downloader YTDownloader { get; set; }
-        private object _currentView;
+        private object _currentView = null!;
         public object CurrentView
         {
             get => _currentView;
@@ -34,7 +20,7 @@ namespace YTubeD.MVVM.ViewModels
                 OnPropertyChanged();
             }
         }
-        private string _url;
+        private string _url = string.Empty;
         public string Url
         {
             get => _url;
@@ -49,8 +35,7 @@ namespace YTubeD.MVVM.ViewModels
         public ICommand SubmitUrlCommand { get; }
 
         public MainViewModel()
-        {           
-            YTDownloader = new Downloader();
+        {
             OpenSettingsCommand = new RelayCommand(OpenSettings);
             SubmitUrlCommand = new RelayCommand(SubmitUrl);
             VideoDownloaderVM = new VideoDownloaderViewModel();
@@ -69,13 +54,7 @@ namespace YTubeD.MVVM.ViewModels
 
         private async void SubmitUrl(object parameter)
         {
-            if (Url != null)
-            {
-                if (await YTDownloader.IsUrlValid(Url))
-                {
-                    UpdateUrl(Url);
-                }
-            }
+            await Task.Run(() => UpdateUrl(Url));
         }
     }
 }

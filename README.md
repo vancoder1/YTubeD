@@ -32,8 +32,6 @@ YTubeD is a simple and intuitive YouTube downloader application built using WPF 
 
 ## Packages and Dependencies
 
-- **Newtonsoft.Json**: Used for JSON serialization and deserialization.
-  - [GitHub Repository](https://github.com/JamesNK/Newtonsoft.Json)
 - **YoutubeExplode**: Used for interacting with YouTube.
   - [GitHub Repository](https://github.com/Tyrrrz/YoutubeExplode)
 - **MaterialDesignInXAMLToolkit**: Used to create Material Design UI.

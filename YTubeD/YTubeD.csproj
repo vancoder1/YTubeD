@@ -21,7 +21,6 @@
     <PackageReference Include="MaterialDesignColors" Version="3.0.0" />
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="1.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
@@ -46,6 +45,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\" />
   </ItemGroup>
 
 </Project>

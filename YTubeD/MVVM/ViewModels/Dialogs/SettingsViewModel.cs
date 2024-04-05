@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using YTubeD.Core;
@@ -13,7 +8,7 @@ namespace YTubeD.MVVM.ViewModels.Dialogs
 {
     class SettingsViewModel : ObservableObject
     {
-        private SettingsModel Settings;
+        private readonly SettingsModel Settings;
         private string _savingPath = string.Empty;
         public string SavingPath
         {
@@ -28,7 +23,7 @@ namespace YTubeD.MVVM.ViewModels.Dialogs
         public ICommand ChooseDirectoryCommand { get; }
         public ICommand SaveAndCloseCommand { get; }
 
-        public SettingsViewModel() 
+        public SettingsViewModel()
         {
             Settings = new SettingsModel();
             Settings.LoadSettings();

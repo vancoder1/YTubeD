@@ -12,13 +12,11 @@ D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\MaterialDesignColors.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\MaterialDesignThemes.MahApps.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
-D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Ookii.Dialogs.Wpf.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Prism.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YoutubeExplode.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YoutubeExplode.Converter.dll
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.csproj.AssemblyReference.cache
-D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Fonts\CustomFonts.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\MaterialDesignWindowStyle.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\SmallComboBoxStyle.baml
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\Styles\SmallTextBlockStyle.baml

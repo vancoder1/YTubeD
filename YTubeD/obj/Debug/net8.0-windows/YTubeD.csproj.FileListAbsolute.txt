@@ -1,4 +1,5 @@
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.exe
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.dll.config
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.deps.json
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.runtimeconfig.json
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.dll
@@ -13,6 +14,7 @@ D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\MaterialDesignThemes.MahApps.d
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Ookii.Dialogs.Wpf.dll
+D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Prism.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YoutubeExplode.dll
 D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YoutubeExplode.Converter.dll
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.csproj.AssemblyReference.cache
@@ -44,5 +46,3 @@ D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\refint\YTubeD.dll
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.pdb
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\YTubeD.genruntimeconfig.cache
 D:\Work\C#\YTubeD\YTubeD\obj\Debug\net8.0-windows\ref\YTubeD.dll
-D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\YTubeD.dll.config
-D:\Work\C#\YTubeD\YTubeD\bin\Debug\net8.0-windows\Prism.dll

@@ -69,12 +69,5 @@
     "C:\\Users\\ivanz\\.nuget\\packages\\youtubeexplode\\6.3.13\\youtubeexplode.6.3.13.nupkg.sha512",
     "C:\\Users\\ivanz\\.nuget\\packages\\youtubeexplode.converter\\6.3.13\\youtubeexplode.converter.6.3.13.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Work\\C#\\YTubeD\\YTubeD\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

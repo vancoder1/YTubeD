@@ -14,12 +14,15 @@ using YTubeD.MVVM.Model;
 using YTubeD.MVVM.Models.Downloader;
 using YTubeD.Properties;
 using YTubeD.MVVM.Models;
+using System.Windows;
 
 namespace YTubeD.MVVM.ViewModels.Components
 {
     class VideoDownloaderViewModel : ObservableObject
     {
         public Downloader YTDownloader { get; set; }
+        public ProgressBarService FetchingProgressBar { get; set; }
+        public ProgressBarService DownloadingProgressBar { get; set; }
         public ObservableCollection<VideoInfo> Videos
         {
             get; set;
@@ -64,16 +67,6 @@ namespace YTubeD.MVVM.ViewModels.Components
                 OnPropertyChanged();
             }
         }
-        private double _fetchingProgress = 0;
-        public double FetchingProgress
-        {
-            get { return _fetchingProgress; }
-            set
-            {
-                _fetchingProgress = value;
-                OnPropertyChanged();
-            }
-        }
 
         public ICommand DownloadCommand { get; }
         public ICommand ClearAllCommand { get; }
@@ -82,6 +75,8 @@ namespace YTubeD.MVVM.ViewModels.Components
         public VideoDownloaderViewModel()
         {
             YTDownloader = new Downloader();
+            FetchingProgressBar = new ProgressBarService();
+            DownloadingProgressBar = new ProgressBarService();
             Videos = new ObservableCollection<VideoInfo>();
             DownloadOptions = new ObservableCollection<DownloadOption>()
             {
@@ -104,14 +99,19 @@ namespace YTubeD.MVVM.ViewModels.Components
 
         private async void UpdateUrl(string url)
         {
+            FetchingProgressBar.Visibility = Visibility.Visible;
+            FetchingProgressBar.IsIndeterminate = true;
             VideoInfoFetcher infoFetcher = new VideoInfoFetcher();
             VideoInfo info = await infoFetcher.GetVideoInfoAsync(url);
             Videos.Add(info);
+            FetchingProgressBar.IsIndeterminate = false;
+            FetchingProgressBar.Visibility = Visibility.Hidden;
         }
 
         private async void Download(object parameter)
         {
-            StatusMessage = "Downloading...";
+            DownloadingProgressBar.Visibility = Visibility.Visible;
+            DownloadingProgressBar.IsIndeterminate = true;
             try
             {
                 foreach (var video in Videos)
@@ -124,6 +124,8 @@ namespace YTubeD.MVVM.ViewModels.Components
                 StatusMessage = e.Message;
             }
             StatusMessage = "Download Completed!";
+            DownloadingProgressBar.IsIndeterminate = false;
+            DownloadingProgressBar.Visibility = Visibility.Hidden;
         }
 
         private void ClearAll(object parameter)

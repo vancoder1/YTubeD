@@ -16,12 +16,12 @@ namespace YTubeD.MVVM.Model
         {
             Client = new YoutubeClient();
             Settings = new SettingsModel();
-            Settings.LoadSettings();
         }
 
         public async Task Download(VideoInfo videoInfo, DownloadOption quality)
         {
             ArgumentNullException.ThrowIfNull(quality);
+            Settings.LoadSettings();
             var stream = await Client.Videos.Streams.GetManifestAsync(videoInfo.Url);
             quality.GetBestOption(stream);
             string sanitizedTitle = string.Join("_", videoInfo.Title.Split(Path.GetInvalidFileNameChars()));

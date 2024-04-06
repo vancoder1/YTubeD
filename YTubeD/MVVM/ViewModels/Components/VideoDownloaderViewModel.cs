@@ -96,7 +96,7 @@ namespace YTubeD.MVVM.ViewModels.Components
                     await YTDownloader.Download(video, SelectedOption);
                 }
             }
-            catch (ArgumentNullException e)
+            catch (Exception e)
             {
                 await Console.Out.WriteLineAsync(e.Message);
             }

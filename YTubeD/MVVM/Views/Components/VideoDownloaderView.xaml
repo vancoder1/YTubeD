@@ -76,6 +76,12 @@
              Height="1"
              IsIndeterminate="{Binding ProgressBar.IsIndeterminate}"
              Visibility="{Binding ProgressBar.Visibility}"/>
+        <TextBlock Grid.Row="1"
+                   Text="{Binding StatusMessage.Message}"
+                   FontSize="12"
+                   HorizontalAlignment="Center"
+                   Margin="2"
+                   Visibility="{Binding StatusMessage.Visibility}"/>
 
         <!--Row 2-->
         <Grid Grid.Row="2">

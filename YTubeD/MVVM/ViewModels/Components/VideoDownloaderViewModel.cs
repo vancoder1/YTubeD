@@ -4,6 +4,7 @@ using System.Windows.Input;
 using YTubeD.Core;
 using YTubeD.MVVM.Model;
 using YTubeD.MVVM.Models.Downloader;
+using YTubeD.Services;
 using YTubeD.Utils;
 
 namespace YTubeD.MVVM.ViewModels.Components
@@ -101,7 +102,7 @@ namespace YTubeD.MVVM.ViewModels.Components
                 await Console.Out.WriteLineAsync(e.Message);
             }
             ProgressBar.Visibility = Visibility.Hidden;
-            StatusMessage.Message = "Video successfully downloaded!";
+            StatusMessage.Message = "Download completed";
             StatusMessage.Visibility = Visibility.Visible;
             await Task.Delay(StatusMessage.TimeDelay);
             StatusMessage.Visibility = Visibility.Hidden;
@@ -111,7 +112,7 @@ namespace YTubeD.MVVM.ViewModels.Components
         {
             Videos.Clear();
             ProgressBar.Visibility = Visibility.Hidden;
-            StatusMessage.Message = "Video queue cleared!";
+            StatusMessage.Message = "Video queue cleared";
             StatusMessage.Visibility = Visibility.Visible;
             await Task.Delay(StatusMessage.TimeDelay);
             StatusMessage.Visibility = Visibility.Hidden;

@@ -6,29 +6,29 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "AngleSharp/1.0.7": {
+      "AngleSharp/1.1.2": {
         "dependencies": {
           "System.Text.Encoding.CodePages": "8.0.0"
         },
         "runtime": {
           "lib/net8.0/AngleSharp.dll": {
-            "assemblyVersion": "1.0.7.0",
-            "fileVersion": "1.0.7.0"
+            "assemblyVersion": "1.1.2.0",
+            "fileVersion": "1.1.2.0"
           }
         }
       },
-      "CliWrap/3.6.4": {
+      "CliWrap/3.6.6": {
         "runtime": {
           "lib/netcoreapp3.0/CliWrap.dll": {
-            "assemblyVersion": "3.6.4.0",
-            "fileVersion": "3.6.4.0"
+            "assemblyVersion": "3.6.6.0",
+            "fileVersion": "3.6.6.0"
           }
         }
       },
       "ControlzEx/4.3.0": {
         "dependencies": {
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.39",
-          "System.Text.Json": "4.7.2"
+          "System.Text.Json": "8.0.3"
         },
         "runtime": {
           "lib/netcoreapp3.1/ControlzEx.dll": {
@@ -88,6 +88,14 @@
           "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
             "assemblyVersion": "1.1.0.0",
             "fileVersion": "1.1.39.4716"
+          }
+        }
+      },
+      "Onova/2.6.12": {
+        "runtime": {
+          "lib/net8.0/Onova.dll": {
+            "assemblyVersion": "2.6.12.0",
+            "fileVersion": "2.6.12.0"
           }
         }
       },
@@ -742,11 +750,30 @@
           }
         }
       },
-      "System.Text.Json/4.7.2": {
+      "System.Text.Encodings.Web/8.0.0": {
         "runtime": {
-          "lib/netcoreapp3.0/System.Text.Json.dll": {
-            "assemblyVersion": "4.0.1.2",
-            "fileVersion": "4.700.20.21406"
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
+            "rid": "browser",
+            "assetType": "runtime",
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "System.Text.Json/8.0.3": {
+        "dependencies": {
+          "System.Text.Encodings.Web": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.324.11423"
           }
         }
       },
@@ -769,45 +796,46 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "YoutubeExplode/6.3.13": {
+      "YoutubeExplode/6.3.16": {
         "dependencies": {
-          "AngleSharp": "1.0.7"
+          "AngleSharp": "1.1.2",
+          "System.Text.Json": "8.0.3"
         },
         "runtime": {
-          "lib/net5.0/YoutubeExplode.dll": {
-            "assemblyVersion": "6.3.13.0",
-            "fileVersion": "6.3.13.0"
+          "lib/net8.0/YoutubeExplode.dll": {
+            "assemblyVersion": "6.3.16.0",
+            "fileVersion": "6.3.16.0"
           }
         }
       },
-      "YoutubeExplode.Converter/6.3.13": {
+      "YoutubeExplode.Converter/6.3.16": {
         "dependencies": {
-          "CliWrap": "3.6.4",
-          "YoutubeExplode": "6.3.13"
+          "CliWrap": "3.6.6",
+          "YoutubeExplode": "6.3.16"
         },
         "runtime": {
-          "lib/net5.0/YoutubeExplode.Converter.dll": {
-            "assemblyVersion": "6.3.13.0",
-            "fileVersion": "6.3.13.0"
+          "lib/net8.0/YoutubeExplode.Converter.dll": {
+            "assemblyVersion": "6.3.16.0",
+            "fileVersion": "6.3.16.0"
           }
         }
       }
     }
   },
   "libraries": {
-    "AngleSharp/1.0.7": {
+    "AngleSharp/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jZg7lDcrXRiIC8VBluuGKOCMR9mc4CIRX5vpQJ8fcgafs6T6plOzKHhAn3lJEwXorrltd9p1WtRxxhFpRBACbg==",
-      "path": "anglesharp/1.0.7",
-      "hashPath": "anglesharp.1.0.7.nupkg.sha512"
+      "sha512": "sha512-aRFpAqixbuj1Vmqy2hsWPF0PJygo1SfjvmpBvVWZv6i+/u+C/L4wDdwFIzyCGUbjqr61NsZdPNPqDE8wlmG2qA==",
+      "path": "anglesharp/1.1.2",
+      "hashPath": "anglesharp.1.1.2.nupkg.sha512"
     },
-    "CliWrap/3.6.4": {
+    "CliWrap/3.6.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KVGVZlR0GWgN3Xr88oZMSzYu38TXIogwLz588e6wku3mIfg6lPchxpYWtZSZfurpTY63ANF61xWp8EZF3jkN4g==",
-      "path": "cliwrap/3.6.4",
-      "hashPath": "cliwrap.3.6.4.nupkg.sha512"
+      "sha512": "sha512-8/WnYKDjXjqMp9ktCygmeC6kDsmSEKF4riEYNy98+nD3wOKbuxqOjmhiFMalOYlM+mUqfs3SOEowF20+loDZHQ==",
+      "path": "cliwrap/3.6.6",
+      "hashPath": "cliwrap.3.6.6.nupkg.sha512"
     },
     "ControlzEx/4.3.0": {
       "type": "package",
@@ -864,6 +892,13 @@
       "sha512": "sha512-8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
       "path": "microsoft.xaml.behaviors.wpf/1.1.39",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+    },
+    "Onova/2.6.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CPaqS2vOKsFl7CQS9wEMMtt50BDYJs+DHshNoOomQRrcifaVpptI/8AXLMxsuh1hrdBkYa8oT9KkxO4HAIloFg==",
+      "path": "onova/2.6.12",
+      "hashPath": "onova.2.6.12.nupkg.sha512"
     },
     "Ookii.Dialogs.Wpf/5.0.1": {
       "type": "package",
@@ -1201,12 +1236,19 @@
       "path": "system.text.encoding.codepages/8.0.0",
       "hashPath": "system.text.encoding.codepages.8.0.0.nupkg.sha512"
     },
-    "System.Text.Json/4.7.2": {
+    "System.Text.Encodings.Web/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
-      "path": "system.text.json/4.7.2",
-      "hashPath": "system.text.json.4.7.2.nupkg.sha512"
+      "sha512": "sha512-yev/k9GHAEGx2Rg3/tU6MQh4HGBXJs70y7j1LaM1i/ER9po+6nnQ6RRqTJn1E7Xu0fbIFK80Nh5EoODxrbxwBQ==",
+      "path": "system.text.encodings.web/8.0.0",
+      "hashPath": "system.text.encodings.web.8.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/8.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hpagS9joOwv6efWfrMmV9MjQXpiXZH72PgN067Ysfr6AWMSD1/1hEcvh/U5mUpPLezEWsOJSuVrmqDIVD958iA==",
+      "path": "system.text.json/8.0.3",
+      "hashPath": "system.text.json.8.0.3.nupkg.sha512"
     },
     "System.Threading/4.3.0": {
       "type": "package",
@@ -1222,19 +1264,19 @@
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
-    "YoutubeExplode/6.3.13": {
+    "YoutubeExplode/6.3.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iti804hjfgz+vv8F5iNnquylcvw9J7jmWbHZNV1WCyLu25A28zXMgCRIUWsYLI+qTHiLLFBXSxW2MCZVZJaZYQ==",
-      "path": "youtubeexplode/6.3.13",
-      "hashPath": "youtubeexplode.6.3.13.nupkg.sha512"
+      "sha512": "sha512-DalkDhIMiypnENMDaNhHgmnKENqVT76JNBX/Fu/3CbItudrNIYcgolE7rfPi2sUO4jfeiqn5ztduwm+awq9L3g==",
+      "path": "youtubeexplode/6.3.16",
+      "hashPath": "youtubeexplode.6.3.16.nupkg.sha512"
     },
-    "YoutubeExplode.Converter/6.3.13": {
+    "YoutubeExplode.Converter/6.3.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QOkpwcxn+7LIatpc96YFR6j0fIyJiZBQCnFLRJJBRSRw6QUOWgFibd7DOCwy6zME2JKIgNjSTU9YicoAlFu9mA==",
-      "path": "youtubeexplode.converter/6.3.13",
-      "hashPath": "youtubeexplode.converter.6.3.13.nupkg.sha512"
+      "sha512": "sha512-eGTcw1PZ+zwKVELzBnZFTYAS41Is2HaYfOahKtz4C/iYceGVtdXXQVFxeaAZVV1IGNILzI6w3RUZlIULltQI7Q==",
+      "path": "youtubeexplode.converter/6.3.16",
+      "hashPath": "youtubeexplode.converter.6.3.16.nupkg.sha512"
     }
   }
 }

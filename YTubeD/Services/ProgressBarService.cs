@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using YTubeD.Core;
 
-namespace YTubeD.Utils
+namespace YTubeD.Services
 {
-    public class StatusMessageService : ObservableObject
+    public class ProgressBarService : ObservableObject
     {
         private Visibility _visibility;
         public Visibility Visibility
@@ -15,31 +15,27 @@ namespace YTubeD.Utils
                 OnPropertyChanged();
             }
         }
-
-        private string _message = string.Empty;
-        public string Message
+        private bool _isIndeterminate;
+        public bool IsIndeterminate
         {
-            get => _message;
+            get => _isIndeterminate;
             set
             {
-                _message = value;
+                _isIndeterminate = value;
                 OnPropertyChanged();
             }
         }
 
-        public int TimeDelay { get; set; }
-
-        public StatusMessageService()
+        public ProgressBarService()
         {
             Visibility = Visibility.Hidden;
-            Message = string.Empty;
+            IsIndeterminate = false;
         }
 
-        public StatusMessageService(Visibility visibility, string message, int timeDelay)
+        public ProgressBarService(Visibility visibility, bool isIndeterminate)
         {
             Visibility = visibility;
-            Message = message;
-            TimeDelay = timeDelay;
+            IsIndeterminate = isIndeterminate;
         }
     }
 }

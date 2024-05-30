@@ -21,6 +21,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!--Row 0-->
@@ -66,14 +67,34 @@
         </StackPanel>
 
         <!--Row 2-->
-        <Button Grid.Row="2"
-                Content="Save and close"
-                FontWeight="Light"
-                HorizontalAlignment="Center"
-                Margin="20"
-                Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"
-                Command="{Binding SaveAndCloseCommand}"
-                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+        <TextBlock Grid.Row="2"
+           Text="{Binding StatusMessage.Message}"
+           FontSize="12"
+           HorizontalAlignment="Center"
+           Margin="2"
+           Visibility="{Binding StatusMessage.Visibility}"/>
 
+        <!--Row 3-->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="2" Grid.Column="0"
+                    Content="Save and close"
+                    FontWeight="Light"
+                    HorizontalAlignment="Center"
+                    Margin="15"
+                    Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"
+                    Command="{Binding SaveAndCloseCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+            <Button Grid.Row="2" Grid.Column="1"
+                    Content="Check for updates"
+                    FontWeight="Light"
+                    HorizontalAlignment="Center"
+                    Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"
+                    Command="{Binding CheckForUpdatesCommand}"/>
+        </Grid>
     </Grid>
 </Window>

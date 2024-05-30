@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using YTubeD.Core;
 
-namespace YTubeD.Utils
+namespace YTubeD.Services
 {
     public class ProgressBarService : ObservableObject
     {
